@@ -1,0 +1,109 @@
+.icon {
+  width: 24px;
+  height: 24px;
+
+  & svg {
+    stroke: @color-blue-dark;
+  }
+
+  &._fill {
+    &-none svg {
+      fill: none;
+    }
+
+    &-white svg {
+      fill: @color-white;
+    }
+
+    &-grey svg {
+      fill: @color-grey-light;
+    }
+
+    &-blue-light svg {
+      fill: @color-blue-light;
+    }
+
+    &-blue svg {
+      fill: @color-blue;
+    }
+
+    &-blue-dark svg {
+      fill: @color-blue-dark;
+    }
+
+    &-blue-deep-dark svg {
+      fill: @color-blue-deep-dark;
+    }
+  }
+
+  &._stroke {
+    &-none svg {
+      stroke: none;
+    }
+
+    &-white svg {
+      stroke: @color-white;
+    }
+
+    &-grey svg {
+      stroke: @color-grey-light;
+    }
+
+    &-blue-light svg {
+      stroke: @color-blue-light;
+    }
+
+    &-blue svg {
+      stroke: @color-blue;
+    }
+
+    &-blue-dark svg {
+      stroke: @color-blue-dark;
+    }
+
+    &-blue-deep-dark svg {
+      stroke: @color-blue-deep-dark;
+    }
+  }
+
+  &._color-none {
+    & svg {
+      fill: none;
+      stroke: none;
+    }
+  }
+
+  &._size {
+    &-m,
+    &-m svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    &-l,
+    &-l svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    &-xl,
+    &-xl svg {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+
+  &._rotate {
+    &-d svg {
+      transform: rotate(90deg);
+    }
+    &-u svg {
+      transform: rotate(270deg);
+    }
+    &-l svg {
+      transform: rotate(180deg);
+    }
+  }
+
+}
