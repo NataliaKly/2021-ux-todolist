@@ -5,11 +5,20 @@ import { CommonModule } from "./common/common.module";
 import { AngularSvgIconModule } from "angular-svg-icon";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatInputModule } from "@angular/material/input";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CommonModule, HttpClientModule, AngularSvgIconModule.forRoot(), RouterModule, BrowserAnimationsModule],
-  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    HttpClientModule,
+    AngularSvgIconModule.forRoot(),
+    RouterModule,
+    BrowserAnimationsModule,
+    MatInputModule
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

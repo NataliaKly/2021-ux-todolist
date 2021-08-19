@@ -1,0 +1,42 @@
+<div class='main-info__container'>
+    <div class='main-info__form-title'>
+        <h1>{{title}}</h1>
+    </div>
+        <div>
+                    <mat-form-field appearance="outline">
+                    <mat-label>name</mat-label>
+                    <input matInput [formControl]="inputControl">
+                </mat-form-field>
+            </div>
+        <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>place</mat-label>
+                    <input matInput [formControl]="inputControl">
+                </mat-form-field>
+        </div>
+
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>data</mat-label>
+                    <input matInput [formControl]="inputControl">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class='main-info__form-row'>
+            <div class='main-info__form-textarea'>
+                <div class='main-info__form-description'>
+                    <b-text-area formControlName='textarea'></b-text-area>
+                </div>
+            </div>
+        </div>
+
+        <div class='main-info__form-row _flex-end'>
+            <div class='main-info__form-button'>
+                <button mat-button mat-raised-button [color]="'primary'">Cancel</button>
+            </div>
+            <div class='main-info__form-button _flex-end'>
+                <button mat-button mat-raised-button [color]="'primary'">Save</button>
+            </div>
+        </div>
+

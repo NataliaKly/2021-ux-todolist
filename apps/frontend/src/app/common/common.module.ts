@@ -7,6 +7,7 @@ import { AppRoutingModule } from "../app-routing.module";
 import { RouterModule } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
+import { EventPageComponent } from "./event-page/event-page.component";
 
 const components = [PageTitleComponent];
 
@@ -21,7 +22,7 @@ const components = [PageTitleComponent];
     MatButtonModule,
     MatInputModule
   ],
-  declarations: components,
-  exports: components
+  declarations: [EventPageComponent, PageTitleComponent],
+  exports: [EventPageComponent, PageTitleComponent]
 })
 export class CommonModule {}
