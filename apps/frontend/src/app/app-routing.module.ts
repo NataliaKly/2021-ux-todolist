@@ -5,11 +5,8 @@ import { EventPageComponent } from "./common/event-page/event-page.component";
 
 const routes: Routes = [
   {
-    path: "event/:176d006b-c141-40f3-a2ef-6269c8038107",
+    path: "event",
     component: EventPageComponent
-  },
-  {
-    path: "task/:id"
   },
   { path: "", component: PageTitleComponent, pathMatch: "full" }
 ];
