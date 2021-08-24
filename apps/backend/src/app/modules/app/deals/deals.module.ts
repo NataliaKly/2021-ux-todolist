@@ -4,6 +4,6 @@ import { DealsController } from "./deals.controller";
 
 @Module({
   imports: [DbModule],
-  controllers: [DealsController],
+  controllers: [DealsController]
 })
 export class DealsModule {}
