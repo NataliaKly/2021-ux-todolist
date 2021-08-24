@@ -29,17 +29,13 @@ export class EventPageComponent {
     });
   }
   ngOnInit(): void {
-    this.route.params
-      .subscribe((param) => {
-        const id = param.id || '';
-        this.service.setValue(id)
-        this.service.getValue();
-
-        }
-      })
     this.fb.group(FormGroup);
     this.formG.valueChanges.subscribe(value => {
       value;
+    });
+    this.route.params.subscribe(param => {
+      const id = param.id || "";
+      this.service.getValue(id);
     });
     this.formG.patchValue({
       name: this.FormInfo.name,
@@ -48,6 +44,7 @@ export class EventPageComponent {
       textarea: this.FormInfo.textarea
     });
   }
+
   changesInfo() {
     this.FormInfo.name = this.formG.get("name").value;
     this.FormInfo.place = this.formG.get("place").value;
