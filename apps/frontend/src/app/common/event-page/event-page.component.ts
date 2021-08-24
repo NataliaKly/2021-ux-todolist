@@ -18,6 +18,7 @@ export class EventPageComponent {
   input: string;
   public formG: FormGroup;
   inputControl: FormControl = new FormControl();
+  id: string;
 
   constructor(private service: EventService, private route: ActivatedRoute, private fb: FormBuilder) {
     this.formG = fb.group({
@@ -28,6 +29,14 @@ export class EventPageComponent {
     });
   }
   ngOnInit(): void {
+    this.route.params
+      .subscribe((param) => {
+        const id = param.id || '';
+        this.service.setValue(id)
+        this.service.getValue();
+
+        }
+      })
     this.fb.group(FormGroup);
     this.formG.valueChanges.subscribe(value => {
       value;
