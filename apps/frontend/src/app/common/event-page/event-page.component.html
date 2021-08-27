@@ -1,25 +1,25 @@
 <div class='main-info__container'
-[routerLink]="['/event', id]">
+[routerLink]="['/event']">
     <div class='main-info__form-title'>
-        <h1>{{title}}</h1>
+        <h1>Текст для проверки отрисовки</h1>
     </div>
-        <div formControlName='name'>
-                    <mat-form-field appearance="outline">
+        <div >
+                    <mat-form-field appearance="outline" >
                     <mat-label>name</mat-label>
-                    <input matInput >
+                    <input matInput matInput [value] = "formInfo.name"  >
                 </mat-form-field>
             </div>
-        <div formControlName='place'>
+        <div >
                 <mat-form-field appearance="outline">
                     <mat-label>place</mat-label>
-                    <input matInput [formControl]="inputControl">
+                    <input matInput [value] = "formInfo.place" >
                 </mat-form-field>
         </div>
 
-            <div formControlName='data' >
+            <div  >
                 <mat-form-field appearance="outline">
                     <mat-label>data</mat-label>
-                    <input matInput [formControl]="inputControl">
+                    <input matInput [value] = "formInfo.data" >
                 </mat-form-field>
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class='main-info__form-row'>
             <div class='main-info__form-textarea'>
                 <div class='main-info__form-description'>
-                    <b-text-area formControlName='textarea'></b-text-area>
+                    <input  >
                 </div>
             </div>
         </div>

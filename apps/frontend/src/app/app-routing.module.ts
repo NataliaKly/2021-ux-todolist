@@ -5,7 +5,7 @@ import { EventPageComponent } from "./common/event-page/event-page.component";
 
 const routes: Routes = [
   {
-    path: "event/:id",
+    path: "event",
     component: EventPageComponent
   },
   { path: "", component: PageTitleComponent, pathMatch: "full" }

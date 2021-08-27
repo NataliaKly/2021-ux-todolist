@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 export class EventService {
   constructor(private http: HttpClient) {}
 
-  getValue(id): Observable<formInfo> {
-    return this.http.get<formInfo>("/api/event/" + id);
+  getValue(): Observable<string> {
+    return this.http.get<string>("/event");
   }
 }
