@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
 import { FormInfoModel } from "../../models/formInfo.model";
+import { Observable } from "rxjs";
+import { EventService } from "../../service/event.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "b-event-page",
@@ -7,15 +10,27 @@ import { FormInfoModel } from "../../models/formInfo.model";
   styleUrls: ["./event-page.component.less"]
 })
 export class EventPageComponent {
-  //   save: string;
-  //   cancel: string;
-  //   title: string;
-  public formInfo: FormInfoModel;
+  public formInfo: FormInfoModel = {
+    name: "",
+    time: "",
+    data: "",
+    place: ""
+  };
+  public form: string;
+  public pageId: string;
+  constructor(private route: ActivatedRoute, private eventService: EventService) {}
   ngOnInit() {
-    this.formInfo.name = "Lunch";
-    this.formInfo.time = "18:00";
-    this.formInfo.data = "21/08/2021";
-    this.formInfo.place = "Lenina.street";
+    this.route.params.subscribe(params => {
+      this.pageId = params.id;
+      this.eventService.getPageById(this.pageId);
+    });
+    const formInfo = new Observable(() => {
+      this.formInfo.name = "Lunch";
+      this.formInfo.time = "18:00";
+      this.formInfo.data = "21/08/2021";
+      this.formInfo.place = "Lenina.street";
+    });
+    formInfo.subscribe(formInfo => formInfo);
   }
 
   //   @Input()
