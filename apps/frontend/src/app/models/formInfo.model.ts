@@ -1,6 +1,6 @@
 export interface FormInfoModel {
-  name: string;
-  place: string;
-  data: string;
+  date: string;
   time: string;
+  title: string;
+  place: string;
 }

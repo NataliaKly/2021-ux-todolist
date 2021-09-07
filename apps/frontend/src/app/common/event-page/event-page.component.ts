@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
 import { FormInfoModel } from "../../models/formInfo.model";
-import { Observable } from "rxjs";
 import { EventService } from "../../service/event.service";
 import { ActivatedRoute } from "@angular/router";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { EventDto } from "@todolist/models/event.dto";
 
 @Component({
   selector: "b-event-page",
@@ -11,26 +12,26 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class EventPageComponent {
   public formInfo: FormInfoModel = {
-    name: "",
+    title: "",
     time: "",
-    data: "",
+    date: "",
     place: ""
   };
-  public form: string;
+  public formG: FormGroup;
   public pageId: string;
+  public pageForm: EventDto;
   constructor(private route: ActivatedRoute, private eventService: EventService) {}
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.pageId = params.id;
-      this.eventService.getPageById(this.pageId);
+      this.eventService.getPageById(this.pageId).subscribe((pageForm: EventDto) => {
+        console.log(pageForm);
+        this.formInfo.title = this.pageForm.title;
+        this.formInfo.place = this.pageForm.place;
+        // this.formInfo.time = this.pageForm.date.time;
+        // this.formInfo.date = this.pageForm.date.date;
+      });
     });
-    const formInfo = new Observable(() => {
-      this.formInfo.name = "Lunch";
-      this.formInfo.time = "18:00";
-      this.formInfo.data = "21/08/2021";
-      this.formInfo.place = "Lenina.street";
-    });
-    formInfo.subscribe(formInfo => formInfo);
   }
 
   //   @Input()

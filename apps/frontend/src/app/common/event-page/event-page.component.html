@@ -1,12 +1,12 @@
 <div class='event-page'
-[routerLink]="['/event']">
+[routerLink]="['/events', pageId]">
     <div class='event-page__title'>
         <h1>Текст для проверки отрисовки</h1>
     </div>
         <div  >
                     <mat-form-field appearance="outline" >
                     <mat-label>name</mat-label>
-                    <input matInput [value] = "formInfo.name"  >
+                    <input matInput [value] = "formInfo.title" >
                 </mat-form-field>
             </div>
         <div >
@@ -19,7 +19,7 @@
             <div  >
                 <mat-form-field appearance="outline">
                     <mat-label>data</mat-label>
-                    <input matInput [value] = "formInfo.data" >
+                    <input matInput [value] = "formInfo.date" >
                 </mat-form-field>
             </div>
         </div>
