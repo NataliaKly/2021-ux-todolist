@@ -8,6 +8,8 @@ import { RouterModule } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { EventPageComponent } from "./event-page/event-page.component";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
 
 const components = [PageTitleComponent];
 
@@ -20,7 +22,9 @@ const components = [PageTitleComponent];
     AppRoutingModule,
     FormsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   declarations: [EventPageComponent, PageTitleComponent],
   exports: [EventPageComponent, PageTitleComponent]

@@ -17,7 +17,7 @@ export class EventPageComponent {
     date: "",
     place: ""
   };
-  public formG: FormGroup;
+  public form: EventDto;
   public pageId: string;
   public pageForm: EventDto;
   constructor(private route: ActivatedRoute, private eventService: EventService) {}
@@ -26,13 +26,30 @@ export class EventPageComponent {
       this.pageId = params.id;
       this.eventService.getPageById(this.pageId).subscribe((pageForm: EventDto) => {
         console.log(pageForm);
-        this.formInfo.title = this.pageForm.title;
-        this.formInfo.place = this.pageForm.place;
-        // this.formInfo.time = this.pageForm.date.time;
-        // this.formInfo.date = this.pageForm.date.date;
+        this.pageForm = pageForm;
+        this.formInfo.title = this.pageForm?.title;
+        this.formInfo.place = this.pageForm?.place;
+        const date = new Date(this.pageForm?.date);
+        const [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()];
+        const formattedDate = day + "-" + month + "-" + year;
+        const [hours, minutes] = [date.getHours(), date.getMinutes()];
+        const formattedTime = hours + ":" + minutes;
+        this.formInfo.date = formattedDate;
+        this.formInfo.time = formattedTime;
+        // const time: new Date() =  { formattedDate, hours: time.setHours(hours), minutes: time.setMinutes(minutes) };
+        // console.log(time);
+        // time.toISOString();
+        // this.form = {
+        //   title: this.formInfo.title,
+        //   // date: timeFormattedDate,
+        //   place: this.formInfo.place
+        // };
       });
     });
   }
+  // changeFormInfo() {
+  //   this.pageForm.title = this.form.get().value;
+  // }
 
   //   @Input()
   //   input: string;
