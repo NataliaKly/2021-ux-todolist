@@ -3,4 +3,5 @@ export interface FormInfoModel {
   time: string;
   title: string;
   place: string;
+  description: string;
 }
