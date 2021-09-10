@@ -19,6 +19,7 @@ export class EventPageComponent {
   };
   public pageId: string;
   public date: Date;
+  public event;
   constructor(private route: ActivatedRoute, private eventService: EventService) {}
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -28,8 +29,7 @@ export class EventPageComponent {
         this.formInfo.place = pageForm?.place;
         this.date = new Date(pageForm?.date);
         const [hours, minutes] = [this.date.getHours(), this.date.getMinutes()];
-        const formattedTime: string = hours + ":" + minutes;
-        this.formInfo.time = formattedTime;
+        this.formInfo.time = hours + ":" + minutes;
       });
     });
   }
@@ -47,7 +47,8 @@ export class EventPageComponent {
       id: this.pageId,
       description: this.formInfo.description
     };
-    this.eventService.patchSaveInfo(this.pageId, info).subscribe((newInfo: EventDto) => {
+    this.event = info;
+    this.eventService.patchSaveInfo(this.pageId, this.event).subscribe((newInfo: EventDto) => {
       newInfo;
     });
   }

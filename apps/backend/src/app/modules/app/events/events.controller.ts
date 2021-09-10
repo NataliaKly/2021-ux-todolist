@@ -54,7 +54,7 @@ export class EventsController {
     };
   }
 
-  @Patch()
+  @Patch(":id")
   async updateEvent(@Body() body: { event: EventDto }): Promise<EventDto> {
     const event = await this.eventsRepository.save({
       id: body.event.id,
