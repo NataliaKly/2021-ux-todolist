@@ -19,7 +19,6 @@ export class EventPageComponent {
   };
   public pageId: string;
   public date: Date;
-  public event;
   constructor(private route: ActivatedRoute, private eventService: EventService) {}
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -47,8 +46,10 @@ export class EventPageComponent {
       id: this.pageId,
       description: this.formInfo.description
     };
-    this.event = info;
-    this.eventService.patchSaveInfo(this.pageId, this.event).subscribe((newInfo: EventDto) => {
+    const body = {
+      event: info
+    };
+    this.eventService.patchSaveInfo(this.pageId, body).subscribe((newInfo: EventDto) => {
       newInfo;
     });
   }

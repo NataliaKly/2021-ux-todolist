@@ -11,7 +11,7 @@ export class EventService {
   getPageById(pageId: string): Observable<EventDto> {
     return this.http.get<EventDto>("/api/events/" + pageId);
   }
-  patchSaveInfo(pageId: string, body: EventDto): Observable<EventDto> {
+  patchSaveInfo(pageId: string, body: { event: EventDto }): Observable<EventDto> {
     return this.http.patch<EventDto>("/api/events/" + pageId, body);
   }
 }
