@@ -11,13 +11,13 @@
     <div>
                     <mat-form-field appearance="outline" >
                     <mat-label>name</mat-label>
-                    <input matInput [value] = "formInfo.title" >
+                    <input [(ngModel)]="formInfo.title"matInput [value]="formInfo.title" >
                 </mat-form-field>
             </div>
         <div >
                 <mat-form-field appearance="outline">
                     <mat-label>place</mat-label>
-                    <input matInput [value] = "formInfo.place" >
+                    <input [(ngModel)]="formInfo.place" matInput [value]="formInfo.place" >
                 </mat-form-field>
         </div>
 
@@ -30,7 +30,7 @@
     <div  >
         <mat-form-field appearance="outline" >
             <mat-label>time</mat-label>
-            <input matInput [value] = "formInfo.time" >
+            <input [(ngModel)]="formInfo.time" matInput [value]="formInfo.time" >
         </mat-form-field>
     </div>
         </div>
