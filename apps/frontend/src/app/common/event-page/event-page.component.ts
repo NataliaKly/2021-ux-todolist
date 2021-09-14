@@ -3,6 +3,8 @@ import { FormInfoModel } from "../../models/formInfo.model";
 import { EventService } from "../../service/event.service";
 import { ActivatedRoute } from "@angular/router";
 import { EventDto } from "@todolist/models/event.dto";
+import { isDateString } from "class-validator";
+import { formatDate } from "@angular/common";
 
 @Component({
   selector: "b-event-page",
@@ -19,6 +21,7 @@ export class EventPageComponent {
   };
   public pageId: string;
   public date: Date;
+  public datePage;
   constructor(private route: ActivatedRoute, private eventService: EventService) {}
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -31,6 +34,10 @@ export class EventPageComponent {
         this.formInfo.time = hours + ":" + minutes;
       });
     });
+  }
+  get dateString(): string {
+    const dateString = this.date;
+    return dateString.toDateString();
   }
 
   saveInfo() {
