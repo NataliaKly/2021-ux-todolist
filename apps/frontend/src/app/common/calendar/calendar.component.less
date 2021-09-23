@@ -22,20 +22,26 @@
         }
     }
     &__container {
-        background: lightblue;
+        background: @color-main-gray-light;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         .card {
             width: 100px;
             height: 100px;
-            background: @color-main-gray-light;
+            background: @color-white;
             margin-bottom: 10px;
             color: @color-main-gray-dark;
             text-align: center;
             line-height: 40px;
             font-size: 24px;
             flex-basis: 14%;
+        }
+        .card1 {
+            &__number {
+                background: @color-main-gray-middle;
+                color: @color-main-gray-dark;
+            }
         }
     }
     &__buttons {
