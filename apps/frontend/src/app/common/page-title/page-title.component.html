@@ -1,9 +1,13 @@
-<div class='page-title'>
-    <div class='page-title__headline'>
-        {{inputControl.value}}
+<div class='page-title '>
+    <div class="page-title__name">
+        <h1> Событие</h1>
     </div>
-    <div class='page-title__palm-icon'>
-    </div>
+<div class="page-title__button _flex-end">
+
+        <button class="page-title__button-mat " mat-stroked-button [color]="'primary'">
+            <div class="page-title__button-wrapper">Календарь ></div>
+        </button>
+</div>
 </div>
 
 <router-outlet></router-outlet>

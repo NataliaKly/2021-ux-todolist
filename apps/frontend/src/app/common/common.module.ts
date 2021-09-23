@@ -10,8 +10,9 @@ import { MatInputModule } from "@angular/material/input";
 import { EventPageComponent } from "./event-page/event-page.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { CalendarComponent } from "./calendar/calendar.component";
 
-const components = [PageTitleComponent];
+const components = [PageTitleComponent, CalendarComponent];
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ const components = [PageTitleComponent];
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  declarations: [EventPageComponent, PageTitleComponent],
+  declarations: [EventPageComponent, PageTitleComponent, CalendarComponent],
   exports: [EventPageComponent, PageTitleComponent]
 })
 export class CommonModule {}

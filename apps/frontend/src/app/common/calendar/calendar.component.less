@@ -1,0 +1,53 @@
+@import "../../../assets/styles/common/shared";
+
+.calendar {
+    width: 70%;
+    padding: 20px;
+  &__title {
+    color: @color-main-violet-dark;
+  }
+    &__year {
+        flex-direction: row;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 20px;
+        border-block: 2px solid @color-main-gray-middle;
+    &-button {
+        background: @color-Surface;
+        border: @color-primary-hover;
+    }
+        &-wrapper {
+            color: @color-primary-hover;
+        }
+    }
+    &__container {
+        background: lightblue;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .card {
+            width: 100px;
+            height: 100px;
+            background: @color-main-gray-light;
+            margin-bottom: 10px;
+            color: @color-main-gray-dark;
+            text-align: center;
+            line-height: 40px;
+            font-size: 24px;
+            flex-basis: 14%;
+        }
+    }
+    &__buttons {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+    &-mat {
+        margin: 20px;
+        border-color: @color-main-violet-middle;
+        border-radius: 16px;
+    }
+}
+}
+
+
