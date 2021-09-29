@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { PageTitleComponent } from "./common/page-title/page-title.component";
 import { EventPageComponent } from "./common/event-page/event-page.component";
 import { CalendarComponent } from "./common/calendar/calendar.component";
+import { EventViewComponent } from "./common/event-view/event-view.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
     path: "calendar",
     component: CalendarComponent
   },
+  { path: "event-view", component: EventViewComponent },
   { path: "", component: PageTitleComponent, pathMatch: "full" }
 ];
 @NgModule({

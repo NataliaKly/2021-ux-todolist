@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatInputModule } from "@angular/material/input";
 import { EventService } from "./service/event.service";
 import { CalendarService } from "./service/calendar.service";
+import { DatesService } from "./service/dates.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,7 @@ import { CalendarService } from "./service/calendar.service";
     BrowserAnimationsModule,
     MatInputModule
   ],
-  providers: [EventService, CalendarService],
+  providers: [EventService, CalendarService, DatesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

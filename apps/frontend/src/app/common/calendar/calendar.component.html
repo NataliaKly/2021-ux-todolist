@@ -1,87 +1,28 @@
 <div class='calendar'
-     [routerLink]="['/calendar']">
+     [routerLink]="['/calendar']" >
 
-    <div class='calendar__title'>
-        <h3>Calendar</h3>
+    <div class='calendar__title' (click)="createDay()">
+        <h3 >Calendar</h3>
     </div>
     <div class="calendar__year">
         <button class="calendar__year-button " mat-mini-fab
                 [color]="'link'"
-                (click)="onPreviousMouth()">
+               (click)="backMonth()">
+
             <div class="calendar__year-wrapper" ><-</div>
         </button>
         <div class="calendar__year-wrapper">
-            <h4>{{calendarService.getMonthName(monthNumber)}} &nbsp; {{year}}</h4>
+            <h4>{{month}}</h4>
         </div>
         <button class="calendar__year-button " mat-mini-fab
                 [color]="'link'"
-                (click)="onNextMonth()">
+               (click)="nextMonth()" >
             <div class="calendar__year-wrapper">-></div>
         </button>
     </div>
-    <div class="calendar__container">
-    <div class="card card1">
-    <div class="card1__number">1</div>
-    </div>
-    <div class="card card2">
-        <div class="card1__number">2</div>
-    </div>
-    <div class="card card3">
-        <div class="card1__number">3</div></div>
-    <div class="card card4">
-        <div class="card1__number">4</div></div>
-    <div class="card card5">
-        <div class="card1__number">5</div></div>
-    <div class="card card6">
-        <div class="card1__number">6</div></div>
-    <div class="card card7">
-        <div class="card1__number">7</div></div>
-    <div class="card card8">
-        <div class="card1__number">8</div></div>
-    <div class="card card9">
-        <div class="card1__number">9</div></div>
-    <div class="card card10">
-        <div class="card1__number">10</div></div>
-    <div class="card card11">
-        <div class="card1__number">11</div></div>
-    <div class="card card12">
-        <div class="card1__number">12</div></div>
-    <div class="card card13">
-        <div class="card1__number">13</div></div>
-    <div class="card card14">
-        <div class="card1__number">14</div></div>
-    <div class="card card15">
-        <div class="card1__number">15</div></div>
-    <div class="card card16">
-        <div class="card1__number">16</div></div>
-    <div class="card card17">
-        <div class="card1__number">17</div></div>
-    <div class="card card18">
-        <div class="card1__number">18</div></div>
-    <div class="card card19">
-        <div class="card1__number">19</div></div>
-    <div class="card card20">
-        <div class="card1__number">20</div></div>
-    <div class="card card21">
-        <div class="card1__number">21</div></div>
-    <div class="card card22">
-        <div class="card1__number">22</div></div>
-    <div class="card card23">
-        <div class="card1__number">23</div></div>
-    <div class="card card23">
-        <div class="card1__number">24</div></div>
-    <div class="card card23">
-        <div class="card1__number">25</div></div>
-    <div class="card card23">
-        <div class="card1__number">26</div></div>
-    <div class="card card23">
-        <div class="card1__number">27</div></div>
-    <div class="card card23">
-        <div class="card1__number">28</div></div>
-    <div class="card card23">
-        <div class="card1__number">29</div></div>
-    <div class="card card23">
-        <div class="card1__number">30</div></div>
+    <div class="calendar__container" *ngFor="let dates of datesList">
+tercn
+<!--        <b-calendar-item [dates]="dates"></b-calendar-item>-->
 </div>
     <div class="calendar__buttons">
     <button class="calendar__buttons-mat " mat-stroked-button [color]="'primary'">

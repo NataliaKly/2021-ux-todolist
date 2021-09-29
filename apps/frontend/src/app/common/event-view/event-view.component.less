@@ -1,0 +1,32 @@
+@import "../../../assets/styles/common/shared";
+@tree-svg: "../../../assets/icons/tree.svg";
+
+.page-title{
+    border-bottom: 2px solid @color-main-gray-middle;
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    &._flex-end {
+        justify-content: flex-end;
+    }
+    &__button{
+        justify-content: space-between;
+        &-mat {
+        width: 138px;
+        height: 40px ;
+        background: @color-main-green-dark;
+        border-radius: 16px;
+}
+        &-wrapper {
+            color: @color-Surface;
+        }
+        @media @mobile {
+            margin: 8px;
+            font-size: 36px;
+            line-height: 48px;
+        }
+    }
+    &__name {
+        align-items: center;
+    }
+}
