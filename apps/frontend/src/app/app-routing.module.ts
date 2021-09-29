@@ -7,6 +7,10 @@ import { EventViewComponent } from "./common/event-view/event-view.component";
 
 const routes: Routes = [
   {
+    path: "calendar",
+    component: CalendarComponent
+  },
+  {
     path: "page-title",
     component: PageTitleComponent,
     children: [
@@ -17,11 +21,7 @@ const routes: Routes = [
       { path: "event-view", component: EventViewComponent }
     ]
   },
-  {
-    path: "calendar",
-    component: CalendarComponent
-  },
-  { path: "", component: PageTitleComponent, pathMatch: "full" }
+  { path: "", component: CalendarComponent, pathMatch: "full" }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
