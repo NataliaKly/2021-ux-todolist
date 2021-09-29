@@ -1,32 +1,38 @@
 @import "../../../assets/styles/common/shared";
 @tree-svg: "../../../assets/icons/tree.svg";
 
-.page-title{
+.event-view{
     border-bottom: 2px solid @color-main-gray-middle;
-    flex-direction: row;
-    display: flex;
     width: 100%;
-    &._flex-end {
-        justify-content: flex-end;
-    }
-    &__button{
-        justify-content: space-between;
-        &-mat {
-        width: 138px;
-        height: 40px ;
-        background: @color-main-green-dark;
-        border-radius: 16px;
+&__buttons {
 }
-        &-wrapper {
-            color: @color-Surface;
-        }
-        @media @mobile {
-            margin: 8px;
-            font-size: 36px;
-            line-height: 48px;
+    &__title {
+        width: 100%;
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+        display: flex;
+        margin-top: 20px;
+        padding: 20px;
+        flex-basis: 14%;
+&-wrapper {
+
+}
+
+        &-button{
+            border-radius: 16px;
+            flex-basis: 30%;
+            &._flex-end {
+                justify-content: flex-end;
+            }
+            @media @mobile {
+                margin: 8px;
+                font-size: 36px;
+                line-height: 48px;
+            }
         }
     }
-    &__name {
-        align-items: center;
-    }
+&__info {
+
+}
 }

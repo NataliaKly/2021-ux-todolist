@@ -7,10 +7,10 @@ import { FormInfoModel } from "../models/formInfo.model";
 export class DatesService {
   constructor(private http: HttpClient) {}
   getDates(): Observable<number[]> {
-    return this.http.get<number[]>("/api/calendar");
+    return this.http.get<number[]>("/api/events");
   }
 
   getDatesById(id: string): Observable<number> {
-    return this.http.get<number>("/api/FormInfoModel/" + id); // тут возвращаем продукт по ид
+    return this.http.get<number>("/api/events/" + id); // тут возвращаем продукт по ид
   }
 }

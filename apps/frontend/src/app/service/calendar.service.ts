@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { CalendarDto } from "../../../../../libs/models/calendar.dto";
 
 @Injectable()

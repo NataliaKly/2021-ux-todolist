@@ -21,12 +21,20 @@ export class CalendarComponent {
     // this.calendardto.isToday = d.setHours(0, 0, 0, 0) == moment().hours();
   }
   ngOnInit(): void {
-    this.datesService
-      .getDates()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((dates: number[]) => {
-        this.datesList = dates;
-      });
+    const numberCalendar = moment({ day: 1 }); //установили первый день месяца
+    const addMonth = numberCalendar.add(1, "M"); //прибавили один месяц
+    const subtractMonth = addMonth.subtract(1, "d"); //вычли 1 день
+    const currentDay = subtractMonth.get("date"); //взяли текущий день у момента
+
+    for (let i = 1; i < currentDay; i++) {
+      this.datesList.push(i);
+    }
+    // this.datesService
+    //   .getDates()
+    //   .pipe(takeUntil(this.unsubscribe$))
+    //   .subscribe((dates: number[]) => {
+    //     this.datesList = dates;
+    //   });
   }
 
   // getMonth() {
@@ -40,19 +48,6 @@ export class CalendarComponent {
   //   }
   //   this.array.push(this.createDay(numberCalendar));
   // }
-  createDay() {
-    const numberCalendar = moment({ day: 1 }); //установили первый день месяца
-    const addMonth = numberCalendar.add(1, "M"); //прибавили один месяц
-    const subtractMonth = addMonth.subtract(1, "d"); //вычли 1 день
-    const currentDay = subtractMonth.get("date"); //взяли текущий день у момента
-
-    for (let i = 1; i < currentDay; i++) {
-      //условие цикла от 1
-      // console.log(i);
-      // this.dates[i] = i;
-      // this.dates.push(i);
-    }
-  }
 
   // ngOnInit(): void {
   //   this.generateCalendarDays();

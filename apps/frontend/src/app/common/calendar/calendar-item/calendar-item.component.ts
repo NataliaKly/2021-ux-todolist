@@ -7,5 +7,5 @@ import { FormInfoModel } from "../../../models/formInfo.model";
   styleUrls: ["./calendar-item.component.less"]
 })
 export class CalendarItemComponent {
-  @Input() dates!: FormInfoModel;
+  @Input() date!: FormInfoModel;
 }

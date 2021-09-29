@@ -13,14 +13,14 @@ const routes: Routes = [
       {
         path: "events/:id",
         component: EventPageComponent
-      }
+      },
+      { path: "event-view", component: EventViewComponent }
     ]
   },
   {
     path: "calendar",
     component: CalendarComponent
   },
-  { path: "event-view", component: EventViewComponent },
   { path: "", component: PageTitleComponent, pathMatch: "full" }
 ];
 @NgModule({
