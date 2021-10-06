@@ -1,0 +1,41 @@
+<div class='event-view ' [routerLink]="['/event-view']">
+    <div class='event-view__title '>
+        <h3 class='event-view__title-wrapper'>24/08/2021
+            <button class="event-view__title-button" mat-flat-button [color]="'primary'">
+                Следующее
+            </button>
+        </h3>
+<div class="event-view__title-buttons ">
+            <button class="event-view__title-button" mat-stroked-button [color]="'primary'" >
+                <svg-icon  src="assets/icons/edit.svg">  </svg-icon>
+                Редактировать
+            </button>
+
+            <button class="event-view__title-button _flex-end" mat-stroked-button [color]="'primary'" >
+                <svg-icon  src="assets/icons/delete.svg">  </svg-icon>
+                Удалить
+            </button>
+</div>
+    </div>
+
+    <div class="event-view__info">
+        <div>
+            <p>Время</p>
+            <div></div>
+        </div>
+        <div>
+            <p>Место</p>
+            <div></div>
+        </div>
+        <div>
+            <p>Название</p>
+            <div></div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+

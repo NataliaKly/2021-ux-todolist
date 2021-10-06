@@ -5,4 +5,3 @@ export interface DealDto {
   important: boolean;
   urgent: boolean;
 }
-

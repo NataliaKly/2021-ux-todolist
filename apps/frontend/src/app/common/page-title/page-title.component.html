@@ -1,18 +1,14 @@
-<div class='page-title'>
-    <div class='page-title__headline'>
-        {{inputControl.value}}
+<div class='page-title '>
+    <div class="page-title__name">
+        <h1> Событие</h1>
     </div>
-    <div class='page-title__palm-icon'>
-    </div>
+<div class="page-title__button ">
+
+        <button class="page-title__button-mat " mat-stroked-button [color]="'primary'">
+            <div class="page-title__button-wrapper" [routerLink]="['/calendar']">Календарь ></div>
+        </button>
+</div>
 </div>
 
+<router-outlet></router-outlet>
 
-<div>
-    <mat-form-field appearance="outline">
-        <mat-label>Some text</mat-label>
-        <input matInput [formControl]="inputControl">
-    </mat-form-field>
-</div>
-
-
-<button mat-button mat-raised-button [color]="'primary'">Test material button</button>

@@ -7,8 +7,23 @@ import { AppRoutingModule } from "../app-routing.module";
 import { RouterModule } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
+import { EventPageComponent } from "./event-page/event-page.component";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
+import { CalendarComponent } from "./calendar/calendar.component";
+import { EventViewComponent } from "./event-view/event-view.component";
+import { CalendarItemComponent } from "./calendar/calendar-item/calendar-item.component";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { PopupComponent } from "./popup/popup.component";
 
-const components = [PageTitleComponent];
+const components = [
+  PageTitleComponent,
+  CalendarComponent,
+  EventViewComponent,
+  CalendarComponent,
+  CalendarItemComponent,
+  PopupComponent
+];
 
 @NgModule({
   imports: [
@@ -19,9 +34,26 @@ const components = [PageTitleComponent];
     AppRoutingModule,
     FormsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule
   ],
-  declarations: components,
-  exports: components
+  declarations: [
+    EventPageComponent,
+    PageTitleComponent,
+    CalendarComponent,
+    EventViewComponent,
+    CalendarItemComponent,
+    PopupComponent
+  ],
+  exports: [
+    EventPageComponent,
+    PageTitleComponent,
+    CalendarComponent,
+    EventViewComponent,
+    CalendarItemComponent,
+    PopupComponent
+  ]
 })
 export class CommonModule {}

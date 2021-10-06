@@ -1,0 +1,38 @@
+<div class='calendar'
+     [routerLink]="['/calendar']" >
+
+    <div class='calendar__title' >
+        <h3 >Calendar</h3>
+    </div>
+    <div class="calendar__year">
+        <button class="calendar__year-button " mat-mini-fab
+                [color]="'link'"
+               (click)="backMonth()">
+
+            <div class="calendar__year-wrapper" ><-</div>
+        </button>
+        <div class="calendar__year-wrapper">
+            <h4>{{month}}</h4>
+        </div>
+        <button class="calendar__year-button " mat-mini-fab
+                [color]="'link'"
+               (click)="nextMonth()" >
+            <div class="calendar__year-wrapper">-></div>
+        </button>
+    </div>
+    <div class="calendar__container">
+    <div class="calendar__container-box" *ngFor="let date of datesList">
+        <b-calendar-item [date]="date"></b-calendar-item>
+</div>
+    </div>
+    <div class="calendar__buttons">
+    <button class="calendar__buttons-mat " mat-stroked-button [color]="'primary'">
+        <svg-icon class="calendar__buttons-icon" src="assets/icons/compass.svg"></svg-icon>
+       Добавить событие
+    </button>
+    <button class="calendar__buttons-mat " mat-stroked-button [color]="'primary'">
+        <svg-icon class="calendar__buttons-icon" src="assets/icons/addatask.svg"></svg-icon>
+        Добавить задачу
+    </button>
+    </div>
+</div>

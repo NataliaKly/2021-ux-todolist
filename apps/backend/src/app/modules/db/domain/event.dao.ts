@@ -11,7 +11,7 @@ export class EventDao {
   @Column({ nullable: true })
   description: string;
 
-  @Column({ type: "date", nullable: false })
+  @Column({ type: "timestamp", nullable: false })
   date: string;
 
   @Column({ nullable: true })
