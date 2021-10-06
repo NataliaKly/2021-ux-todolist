@@ -1,5 +1,6 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output, ViewChild } from "@angular/core";
 import { FormInfoModel } from "../../../models/formInfo.model";
+import { PopupComponent } from "../../popup/popup.component";
 
 @Component({
   selector: "b-calendar-item",
@@ -8,4 +9,9 @@ import { FormInfoModel } from "../../../models/formInfo.model";
 })
 export class CalendarItemComponent {
   @Input() date!: FormInfoModel;
+  // @ViewChild(PopupComponent) popup: PopupComponent;
+  @Output() popupVisible: EventEmitter<void> = new EventEmitter<void>();
+  public openPopup(): void {
+    this.popupVisible.emit();
+  }
 }

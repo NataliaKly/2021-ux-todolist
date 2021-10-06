@@ -13,13 +13,16 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { CalendarComponent } from "./calendar/calendar.component";
 import { EventViewComponent } from "./event-view/event-view.component";
 import { CalendarItemComponent } from "./calendar/calendar-item/calendar-item.component";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { PopupComponent } from "./popup/popup.component";
 
 const components = [
   PageTitleComponent,
   CalendarComponent,
   EventViewComponent,
   CalendarComponent,
-  CalendarItemComponent
+  CalendarItemComponent,
+  PopupComponent
 ];
 
 @NgModule({
@@ -33,9 +36,24 @@ const components = [
     MatButtonModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatExpansionModule
   ],
-  declarations: [EventPageComponent, PageTitleComponent, CalendarComponent, EventViewComponent, CalendarItemComponent],
-  exports: [EventPageComponent, PageTitleComponent, CalendarComponent, EventViewComponent, CalendarItemComponent]
+  declarations: [
+    EventPageComponent,
+    PageTitleComponent,
+    CalendarComponent,
+    EventViewComponent,
+    CalendarItemComponent,
+    PopupComponent
+  ],
+  exports: [
+    EventPageComponent,
+    PageTitleComponent,
+    CalendarComponent,
+    EventViewComponent,
+    CalendarItemComponent,
+    PopupComponent
+  ]
 })
 export class CommonModule {}
