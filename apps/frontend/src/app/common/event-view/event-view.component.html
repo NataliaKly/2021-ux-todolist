@@ -1,52 +1,42 @@
 <b-page-title [title]="'yutuytyut'"></b-page-title>
-<div class='event-view ' [routerLink]="['/event-view', pageId]">
-    <div class='event-view__title '>
-        <h3 class='event-view__title-wrapper'>
-            {{dateString}}
-            <button class="event-view__title-button" mat-flat-button [color]="'primary'">
-                Следующее
-            </button>
+<div class="event-view" [routerLink]="['/event-view', pageId]">
+    <div class="event-view__title">
+        <h3 class="event-view__title-wrapper">
+            {{ dateString }}
+            <button class="event-view__title-button" mat-flat-button [color]="'primary'">Следующее</button>
         </h3>
-<div >
-            <button class="event-view__title-button" mat-stroked-button [color]="'primary'" >
-                <svg-icon  src="assets/icons/edit.svg">  </svg-icon>
+        <div>
+            <button class="event-view__title-button" mat-stroked-button [color]="'primary'">
+                <svg-icon src="assets/icons/edit.svg"> </svg-icon>
                 Редактировать
             </button>
 
-            <button class="event-view__title-button _flex-end" mat-stroked-button [color]="'primary'" >
-                <svg-icon  src="assets/icons/delete.svg">  </svg-icon>
+            <button class="event-view__title-button _flex-end" mat-stroked-button [color]="'primary'">
+                <svg-icon src="assets/icons/delete.svg"> </svg-icon>
                 Удалить
             </button>
-</div>
+        </div>
     </div>
 
     <div>
         <div class="event-view__info">
             <p class="event-view__info-text">Время</p>
-<div class="event-view__info-input">
-
-    <svg-icon class="event-view__info-icon" src="assets/icons/watch.svg">  </svg-icon>
-    <div class="event-view__info-inputText">{{eventInfo.time}}</div>
-</div>
+            <div class="event-view__info-input">
+                <svg-icon class="event-view__info-icon" src="assets/icons/watch.svg"> </svg-icon>
+                <div class="event-view__info-inputText">{{ eventInfo.time }}</div>
+            </div>
         </div>
 
         <div class="event-view__info">
             <p class="event-view__info-text">Место</p>
             <div class="event-view__info-input">
-                <svg-icon class="event-view__info-icon" src="assets/icons/place.svg">  </svg-icon>
-                <div class="event-view__info-inputText">{{eventInfo.place}}</div>
+                <svg-icon class="event-view__info-icon" src="assets/icons/place.svg"> </svg-icon>
+                <div class="event-view__info-inputText">{{ eventInfo.place }}</div>
             </div>
-
         </div>
         <div class="event-view__info">
             <p class="event-view__info-text">Название</p>
-            <div class="event-view__info-inputText">{{eventInfo.title}}</div>
+            <div class="event-view__info-inputText">{{ eventInfo.title }}</div>
         </div>
-
-
-
     </div>
 </div>
-
-
-

@@ -1,5 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { FormControl } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { EventService } from "../../service/event.service";
 
 @Component({
   selector: "b-page-title",
@@ -9,6 +11,14 @@ import { FormControl } from "@angular/forms";
 export class PageTitleComponent {
   @Input()
   title = "Title";
+  public pageId: string;
 
-  inputControl: FormControl = new FormControl(this.title);
+  constructor(private route: ActivatedRoute, private eventService: EventService, private router: Router) {}
+
+  openCalendar() {
+    this.eventService.getPageById(this.pageId).subscribe(params => {
+      this.pageId = params.id;
+      this.router.navigate(["/home-page"]);
+    });
+  }
 }

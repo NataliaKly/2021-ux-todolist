@@ -10,6 +10,7 @@
     justify-content: space-between;
     padding: 20px;
 
+
     &._flex-end {
         justify-content: flex-end;
     }
@@ -29,10 +30,10 @@
             color: @color-Surface;
         }
 
-        @media @mobile {
-            margin: 8px;
-            font-size: 36px;
-            line-height: 48px;
+        @media  (max-width: 360px) {
+            width: 50px;
+            font-size:15px;
+            justify-content: normal;
         }
     }
 

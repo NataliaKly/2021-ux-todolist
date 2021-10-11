@@ -1,0 +1,24 @@
+<b-page-title [title]="'eere'"></b-page-title>
+<div class="event-list" [routerLink]="['/event-list', pageId]">
+    <div class="event-list__title">
+        {{dateString}}
+        <button class="event-list__title-button" mat-stroked-button [color]="'primary'" >
+            + Добавить
+        </button>
+    </div>
+    <div class="event-list__info" [ngClass]="{'_completion' : isTrue}">
+        <div class="event-list__info-inputText">
+            <div class="event-list__info-inputText">{{eventInfo.title}}</div>
+            <div class="event-list__info-input">
+                <svg-icon class="event-list__info-icon" src="assets/icons/watch.svg"  > </svg-icon>
+                <div class="event-list__info-inputText">{{eventInfo.time}}</div>
+            </div>
+
+          <div class="event-list__info-input">
+              <svg-icon class="event-list__info-icon" src="assets/icons/place.svg" >  </svg-icon>
+              <div class="event-list__info-inputText">{{eventInfo.place}}</div>
+          </div>
+
+        </div>
+    </div>
+</div>

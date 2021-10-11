@@ -3,6 +3,10 @@
 .calendar {
     width: 70%;
     padding: 20px;
+    @media (max-width: 400px) {
+        width: 100%;
+        justify-content: space-evenly;
+    }
   &__title {
     color: @color-main-violet-dark;
   }
@@ -13,6 +17,9 @@
         justify-content: space-between;
         margin-top: 20px;
         border-block: 2px solid @color-main-gray-middle;
+        @media (max-width: 400px) {
+            width: 100%;
+        }
     &-button {
         background: @color-Surface;
         border: @color-primary-hover;

@@ -6,6 +6,7 @@ import { CalendarComponent } from "./common/calendar/calendar.component";
 import { EventViewComponent } from "./common/event-view/event-view.component";
 import { HomePageComponent } from "./common/home-page/home-page.component";
 import { EventNewComponent } from "./common/event-new/event-new.component";
+import { EventListComponent } from "./common/event-list/event-list.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     component: EventPageComponent
   },
   { path: "event-view/:id", component: EventViewComponent },
+  { path: "event-list/:id", component: EventListComponent },
   { path: "", component: CalendarComponent, pathMatch: "full" }
 ];
 @NgModule({

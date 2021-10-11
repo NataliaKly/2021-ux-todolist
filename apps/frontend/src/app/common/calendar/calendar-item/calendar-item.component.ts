@@ -9,7 +9,7 @@ import { PanelComponent } from "../../panel/panel.component";
 })
 export class CalendarItemComponent {
   @Input() date!: FormInfoModel;
-  public popupVisible = false;
+  @Input() popupVisible = true;
   openPanel(): void {
     this.popupVisible = true;
   }

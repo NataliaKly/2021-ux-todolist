@@ -1,21 +1,18 @@
-import { Component, Input, Output } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { FormInfoModel } from "../../models/formInfo.model";
 import { EventDto } from "@todolist/models/event.dto";
 import { ActivatedRoute } from "@angular/router";
 import { EventService } from "../../service/event.service";
-import { FormInfoModel } from "../../models/formInfo.model";
 import moment from "moment";
 
 @Component({
-  selector: "b-panel",
-  templateUrl: "./panel.component.html",
-  styleUrls: ["./panel.component.less"]
+  selector: "b-event-list",
+  templateUrl: "./event-list.component.html",
+  styleUrls: ["./event-list.component.less"]
 })
-export class PanelComponent {
-  @Output() popupVisible: boolean;
-  public info: string;
-  public pageId: string;
-  public infoView: EventDto;
-  public date;
+export class EventListComponent {
+  @Input()
+  title = "Title";
   public eventInfo: FormInfoModel = {
     title: "",
     time: "",
@@ -23,6 +20,11 @@ export class PanelComponent {
     place: "",
     description: ""
   };
+  public info: string;
+  public pageId: string;
+  public infoView: EventDto;
+  public date;
+  isTrue = false;
   constructor(private route: ActivatedRoute, private eventService: EventService) {}
 
   ngOnInit() {
@@ -36,7 +38,13 @@ export class PanelComponent {
         this.eventInfo.time = hours + ":" + minutes;
       });
     });
+    const momentTime = moment(this.date);
+    const currentTime = momentTime.get("h");
+    for (let i = 1; i < currentTime; i++) {
+      this.isTrue = true;
+    }
   }
+
   get dateString(): string {
     const momentDate = moment(this.date);
     return momentDate.format("DD.MM.YYYY");

@@ -17,6 +17,7 @@ import { EventNewComponent } from "./event-new/event-new.component";
 import { PanelComponent } from "./panel/panel.component";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { HomePageComponent } from "./home-page/home-page.component";
+import { EventListComponent } from "./event-list/event-list.component";
 
 const components = [
   PageTitleComponent,
@@ -26,7 +27,8 @@ const components = [
   CalendarItemComponent,
   EventNewComponent,
   PanelComponent,
-  HomePageComponent
+  HomePageComponent,
+  EventListComponent
 ];
 
 @NgModule({
@@ -51,7 +53,8 @@ const components = [
     CalendarItemComponent,
     EventNewComponent,
     PanelComponent,
-    HomePageComponent
+    HomePageComponent,
+    EventListComponent
   ],
   exports: [
     EventPageComponent,
@@ -61,7 +64,8 @@ const components = [
     CalendarItemComponent,
     EventNewComponent,
     PanelComponent,
-    HomePageComponent
+    HomePageComponent,
+    EventListComponent
   ]
 })
 export class CommonModule {}

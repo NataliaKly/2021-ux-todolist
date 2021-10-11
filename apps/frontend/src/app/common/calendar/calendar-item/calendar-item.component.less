@@ -3,6 +3,9 @@
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
+    @media (max-width: 400px) {
+        width: 100%;
+    }
    &__number {
        width: 100px;
        height: 100px;
@@ -17,6 +20,9 @@
            background: @color-main-gray-middle;
            color: @color-main-gray-dark;
 
+       }
+       @media (max-width: 400px) {
+           width: 100%;
        }
    }
 }
