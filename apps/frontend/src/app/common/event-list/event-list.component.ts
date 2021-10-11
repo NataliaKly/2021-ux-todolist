@@ -13,29 +13,33 @@ import moment from "moment";
 export class EventListComponent {
   @Input()
   title = "Title";
-  public eventInfo: FormInfoModel = {
-    title: "",
-    time: "",
-    date: "",
-    place: "",
-    description: ""
-  };
+  // public eventInfo: FormInfoModel = {
+  //   title: "",
+  //   time: "",
+  //   date: "",
+  //   place: "",
+  //   description: ""
+  // };
   public info: string;
   public pageId: string;
   public infoView: EventDto;
   public date;
   isTrue = false;
+
+  events: EventDto[] = [];
+
   constructor(private route: ActivatedRoute, private eventService: EventService) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.pageId = params.id;
-      this.eventService.getPageById(this.pageId).subscribe((infoView: EventDto) => {
-        this.eventInfo.title = infoView?.title;
-        this.eventInfo.place = infoView?.place;
-        this.date = new Date(infoView?.date);
-        const [hours, minutes] = [this.date.getHours(), this.date.getMinutes()];
-        this.eventInfo.time = hours + ":" + minutes;
+      this.eventService.getEventsList().subscribe((events: EventDto[]) => {
+        this.events = events;
+        // this.eventInfo.title = infoView?.title;
+        // this.eventInfo.place = infoView?.place;
+        // this.date = new Date(infoView?.date);
+        // const [hours, minutes] = [this.date.getHours(), this.date.getMinutes()];
+        // this.eventInfo.time = hours + ":" + minutes;
       });
     });
     const momentTime = moment(this.date);
@@ -47,6 +51,12 @@ export class EventListComponent {
 
   get dateString(): string {
     const momentDate = moment(this.date);
+    return momentDate.format("DD.MM.YYYY");
+  }
+
+  timeString(date: string): string {
+    const momentDate = moment(this.date);
+    //todo
     return momentDate.format("DD.MM.YYYY");
   }
 }

@@ -1,7 +1,6 @@
-<div class="card-container" >
-    <button (click)="openPanel()"></button>
-<div class="card-container__number" *ngIf="date">
-    <div class="card-container__number-wrapper" >{{date}}</div>
-</div>
-
+<div class="card-container">
+    <div class="card-container__number" *ngIf="date">
+        <div class="card-container__number-wrapper">{{ date }}</div>
+        <div class="card-container__number-wrapper">{{ eventsNumber }} событий</div>
+    </div>
 </div>
