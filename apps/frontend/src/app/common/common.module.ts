@@ -7,6 +7,7 @@ import { AppRoutingModule } from "../app-routing.module";
 import { RouterModule } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
+import { EventPageComponent } from "./event-page/event-page.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
 import { CalendarComponent } from "./calendar/calendar.component";
@@ -15,7 +16,6 @@ import { CalendarItemComponent } from "./calendar/calendar-item/calendar-item.co
 import { EventNewComponent } from "./event-new/event-new.component";
 import { PanelComponent } from "./panel/panel.component";
 import { MatExpansionModule } from "@angular/material/expansion";
-import { EventPageComponent } from "./event-page/event-page.component";
 import { HomePageComponent } from "./home-page/home-page.component";
 
 const components = [
