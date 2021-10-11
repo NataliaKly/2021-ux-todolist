@@ -8,6 +8,9 @@ import { EventDto } from "@todolist/models/event.dto";
 export class EventService {
   constructor(private http: HttpClient) {}
 
+  getEventsList(date?: Date): Observable<EventDto[]> {
+    return this.http.get<EventDto[]>("/api/events/");
+  }
   getPageById(pageId: string): Observable<EventDto> {
     return this.http.get<EventDto>("/api/events/" + pageId);
   }

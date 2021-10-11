@@ -9,6 +9,8 @@ import { appConfig } from "../../config/app.config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { DealsModule } from "./deals/deals.module";
 import { EventsModule } from "./events/events.module";
+import { CalendarController } from "./calendar/calendar.controller";
+import { CalendarModule } from "./calendar/calendar.module";
 
 @Module({
   imports: [
@@ -36,6 +38,7 @@ import { EventsModule } from "./events/events.module";
       })
     }),
     DealsModule,
+    CalendarModule,
     EventsModule
   ],
   controllers: [AppController],
