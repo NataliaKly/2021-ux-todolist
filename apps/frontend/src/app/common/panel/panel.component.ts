@@ -1,33 +1,29 @@
-import { Component, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { EventDto } from '@todolist/models/event.dto';
-import { ActivatedRoute } from '@angular/router';
-import { EventService } from '../../service/event.service';
-import { FormInfoModel } from '../../models/formInfo.model';
+import { Component, Input, Output } from "@angular/core";
+import { EventDto } from "@todolist/models/event.dto";
+import { ActivatedRoute } from "@angular/router";
+import { EventService } from "../../service/event.service";
+import { FormInfoModel } from "../../models/formInfo.model";
 import moment from 'moment';
 
 @Component({
-  selector: 'b-event-view',
-  templateUrl: './event-view.component.html',
-  styleUrls: ['./event-view.component.less']
+  selector: "b-panel",
+  templateUrl: "./panel.component.html",
+  styleUrls: ["./panel.component.less"]
 })
-export class EventViewComponent {
-  @Input()
-  title = 'Title';
-  public eventInfo: FormInfoModel = {
-    title: '',
-    time: '',
-    date: '',
-    place: "",
-    description: ''
-  };
+export class PanelComponent {
+  popupVisible = false;
   public info: string;
   public pageId: string;
   public infoView: EventDto;
   public date;
-
-  constructor(private route: ActivatedRoute, private eventService: EventService) {
-  }
+  public eventInfo: FormInfoModel = {
+    title: "",
+    time: "",
+    date: "",
+    place: "",
+    description: ""
+  };
+  constructor(private route: ActivatedRoute, private eventService: EventService) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -41,9 +37,11 @@ export class EventViewComponent {
       });
     });
   }
-
   get dateString(): string {
     const momentDate = moment(this.date);
     return momentDate.format("DD.MM.YYYY");
+  }
+  openPanel(): void {
+    this.popupVisible = true;
   }
 }

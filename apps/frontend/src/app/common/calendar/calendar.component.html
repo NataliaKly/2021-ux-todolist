@@ -1,5 +1,4 @@
-<div class='calendar'
-     [routerLink]="['/calendar']" >
+<div class='calendar'>
 
     <div class='calendar__title' >
         <h3 >Calendar</h3>
@@ -20,7 +19,7 @@
             <div class="calendar__year-wrapper">-></div>
         </button>
     </div>
-    <div class="calendar__container">
+    <div class="calendar__container" >
     <div class="calendar__container-box" *ngFor="let date of datesList">
         <b-calendar-item [date]="date"></b-calendar-item>
 </div>
@@ -35,4 +34,5 @@
         Добавить задачу
     </button>
     </div>
+
 </div>

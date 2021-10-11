@@ -6,7 +6,7 @@ import { FormInfoModel } from "../models/formInfo.model";
 @Injectable()
 export class DatesService {
   constructor(private http: HttpClient) {}
-  getDates(): Observable<number[]> {
+  getDates(date: Date): Observable<number[]> {
     return this.http.get<number[]>("/api/events");
   }
 

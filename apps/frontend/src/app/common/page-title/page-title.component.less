@@ -1,31 +1,41 @@
 @import "../../../assets/styles/common/shared";
+
 @tree-svg: "../../../assets/icons/tree.svg";
 
-.page-title{
+.page-title {
     border-bottom: 2px solid @color-main-gray-middle;
     flex-direction: row;
     display: flex;
     width: 100%;
+    justify-content: space-between;
+    padding: 20px;
+
     &._flex-end {
         justify-content: flex-end;
     }
-    &__button{
+
+    &__button {
         justify-content: space-between;
+
         &-mat {
-        width: 138px;
-        height: 40px ;
-        background: @color-main-green-dark;
-        border-radius: 16px;
-}
+            width: 138px;
+            height: 40px;
+            background: @color-main-green-dark;
+            border-radius: 16px;
+            align-items: center;
+        }
+
         &-wrapper {
             color: @color-Surface;
         }
+
         @media @mobile {
             margin: 8px;
             font-size: 36px;
             line-height: 48px;
         }
     }
+
     &__name {
         align-items: center;
     }

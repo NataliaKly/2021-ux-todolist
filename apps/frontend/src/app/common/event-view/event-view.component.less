@@ -1,11 +1,12 @@
 @import "../../../assets/styles/common/shared";
+
 @tree-svg: "../../../assets/icons/tree.svg";
 
-.event-view{
+.event-view {
     border-bottom: 2px solid @color-main-gray-middle;
     width: 100%;
-&__buttons {
-}
+
+
     &__title {
         width: 100%;
         flex-direction: row;
@@ -15,16 +16,15 @@
         margin-top: 20px;
         padding: 20px;
         flex-basis: 14%;
-&-wrapper {
 
-}
-
-        &-button{
+        &-button {
             border-radius: 16px;
             flex-basis: 30%;
+
             &._flex-end {
-                justify-content: flex-end;
+                margin-left: 20px;
             }
+
             @media @mobile {
                 margin: 8px;
                 font-size: 36px;
@@ -32,7 +32,28 @@
             }
         }
     }
-&__info {
 
-}
+    &__info {
+        width: 100%;
+        margin-left: 30px;
+        margin-top: 30px;
+        flex-direction: row;
+
+        &-text {
+            color: @color-main-gray-text;
+        }
+
+        &-input {
+            display: flex;
+
+        }
+
+        &-icon {
+            margin-right: 10px;
+        }
+
+        &-inputText {
+            font-size: 20px;
+        }
+    }
 }
