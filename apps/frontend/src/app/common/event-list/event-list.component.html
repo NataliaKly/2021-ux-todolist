@@ -1,10 +1,10 @@
 <b-page-title [title]="'eere'"></b-page-title>
-<div *ngFor="let event of events" class="event-list" [routerLink]="['/event-list', pageId]">
+<div class="event-list" [routerLink]="['/event-list', pageId]" *ngFor="let event of events">
     <div class="event-list__title">
-        {{ dateString }}
+        {{ dateString(event.date) }}
         <button class="event-list__title-button" mat-stroked-button [color]="'primary'">+ Добавить</button>
     </div>
-    <div class="event-list__info" [ngClass]="{ _completion: isTrue }">
+    <div class="event-list__info" [ngClass]="completion(event.date)">
         <div class="event-list__info-inputText">
             <div class="event-list__info-inputText">{{ event.title }}</div>
             <div class="event-list__info-input">

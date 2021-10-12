@@ -12,11 +12,11 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
 import { CalendarComponent } from "./calendar/calendar.component";
 import { EventViewComponent } from "./event-view/event-view.component";
-import { CalendarItemComponent } from "./calendar/calendar-item/calendar-item.component";
 import { EventNewComponent } from "./event-new/event-new.component";
 import { PanelComponent } from "./panel/panel.component";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { HomePageComponent } from "./home-page/home-page.component";
+import { CalendarItemComponent } from "./calendar/calendar-item/calendar-item.component";
 import { EventListComponent } from "./event-list/event-list.component";
 
 const components = [

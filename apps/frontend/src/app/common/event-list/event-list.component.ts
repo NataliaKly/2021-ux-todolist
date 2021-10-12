@@ -25,9 +25,8 @@ export class EventListComponent {
   public infoView: EventDto;
   public date;
   isTrue = false;
-
   events: EventDto[] = [];
-
+  eventTime: string;
   constructor(private route: ActivatedRoute, private eventService: EventService) {}
 
   ngOnInit() {
@@ -35,28 +34,40 @@ export class EventListComponent {
       this.pageId = params.id;
       this.eventService.getEventsList().subscribe((events: EventDto[]) => {
         this.events = events;
+
         // this.eventInfo.title = infoView?.title;
         // this.eventInfo.place = infoView?.place;
-        // this.date = new Date(infoView?.date);
+        // this.date = new Date();
         // const [hours, minutes] = [this.date.getHours(), this.date.getMinutes()];
-        // this.eventInfo.time = hours + ":" + minutes;
+        // this.eventTime = hours + ":" + minutes;
+        // if ( i < currentTime; i++) {
+        //   this.isTrue = true;
+        // }
       });
     });
-    const momentTime = moment(this.date);
-    const currentTime = momentTime.get("h");
-    for (let i = 1; i < currentTime; i++) {
-      this.isTrue = true;
+  }
+  completion(timeEvent: string): string {
+    const momentDate = moment(); //тут лежит текущая дата
+    const momentTime = moment(timeEvent); //тут момент для даты события
+    // ( но она же тоже строкой является)
+    console.log(momentDate);
+    if (moment(momentTime).isBefore(momentDate)) {
+      //первое у нас должно быть текущая дата,
+      // с ней мы сравниваем время из события и если оно раньше было то применяем класс
+      return "_completion";
+    } else {
+      return "";
     }
   }
 
-  get dateString(): string {
-    const momentDate = moment(this.date);
+  dateString(date: string): string {
+    const momentDate = moment(date);
     return momentDate.format("DD.MM.YYYY");
   }
 
   timeString(date: string): string {
-    const momentDate = moment(this.date);
+    const momentDate = moment(date);
     //todo
-    return momentDate.format("DD.MM.YYYY");
+    return momentDate.format("HH:mm");
   }
 }
