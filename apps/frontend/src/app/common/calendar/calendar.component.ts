@@ -4,7 +4,7 @@ import moment from "moment";
 import { DatesService } from "../../service/dates.service";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
-import { DayInfoModel } from "../../models/day-info.model";
+import { DayInfoDto } from "@todolist/models/day-info.dto";
 
 @Component({
   selector: "b-calendar",
@@ -14,11 +14,11 @@ import { DayInfoModel } from "../../models/day-info.model";
 export class CalendarComponent {
   // public calendar: CalendarDto[] = [];
   public date = moment();
-  public datesList: { day: number; info: DayInfoModel }[] = [];
+  public datesList: { day: number; info: DayInfoDto }[] = [];
   private unsubscribe$: Subject<void> = new Subject();
 
   public popupVisible = true;
-  public currentDayInfoModel: DayInfoModel;
+  public currentDayInfoModel: DayInfoDto;
 
   constructor(public calendarService: CalendarService, public datesService: DatesService) {
     // this.calendarForm = d;
@@ -35,7 +35,7 @@ export class CalendarComponent {
 
     // start  - need move to subscribe
     for (let i = 1; i < currentDay; i++) {
-      const infoModel: DayInfoModel = {} as DayInfoModel;
+      const infoModel: DayInfoDto = {} as DayInfoDto;
       // todo
       // infoModel = find this day in array from BE
       this.datesList.push({
@@ -57,7 +57,7 @@ export class CalendarComponent {
     const backMonth = this.date.subtract(1, "M");
   }
 
-  showPanel(dayInfoModel: DayInfoModel) {
+  showPanel(dayInfoModel: DayInfoDto) {
     this.currentDayInfoModel = dayInfoModel;
     this.popupVisible = true;
   }

@@ -4,7 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { EventService } from "../../service/event.service";
 import { FormInfoModel } from "../../models/formInfo.model";
 import moment from "moment";
-import { DayInfoModel } from "../../models/day-info.model";
+import { DayInfoDto } from "@todolist/models/day-info.dto";
 
 @Component({
   selector: "b-panel",
@@ -15,7 +15,7 @@ export class PanelComponent {
   @Output() popupVisible: boolean;
 
   @Input()
-  dayInfoModel: DayInfoModel;
+  dayInfoModel: DayInfoDto;
 
   public info: string;
   public pageId: string;

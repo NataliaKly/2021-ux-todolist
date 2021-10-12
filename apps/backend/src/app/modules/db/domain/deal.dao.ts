@@ -8,6 +8,9 @@ export class DealDao {
   @Column({ nullable: false })
   title: string;
 
+  @Column({ type: "timestamp", nullable: false })
+  date: string;
+
   @Column({ nullable: false, default: false })
   finished: boolean;
 
