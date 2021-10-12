@@ -18,6 +18,7 @@ export class DealsController {
     return deals.map(m => ({
       id: m.id,
       title: m.title,
+      date: m.date,
       finished: m.finished,
       important: m.important,
       urgent: m.urgent
@@ -30,6 +31,7 @@ export class DealsController {
     return {
       id: deal.id,
       title: deal.title,
+      date: deal.date,
       finished: deal.finished,
       important: deal.important,
       urgent: deal.urgent
@@ -40,6 +42,7 @@ export class DealsController {
   async addDeal(@Body() body: { deal: DealDto }): Promise<DealDto> {
     const deal = await this.dealsRepository.save({
       title: body.deal.title,
+      date: body.deal.date,
       finished: body.deal.finished,
       important: body.deal.important,
       urgent: body.deal.urgent
@@ -48,6 +51,7 @@ export class DealsController {
     return {
       id: deal.id,
       title: deal.title,
+      date: deal.date,
       finished: deal.finished,
       important: deal.important,
       urgent: deal.urgent
@@ -59,6 +63,7 @@ export class DealsController {
     const deal = await this.dealsRepository.save({
       id: body.deal.id,
       title: body.deal.title,
+      date: body.deal.date,
       finished: body.deal.finished,
       important: body.deal.important,
       urgent: body.deal.urgent
@@ -67,6 +72,7 @@ export class DealsController {
     return {
       id: deal.id,
       title: deal.title,
+      date: deal.date,
       finished: deal.finished,
       important: deal.important,
       urgent: deal.urgent
