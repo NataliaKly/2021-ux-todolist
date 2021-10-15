@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from "@angular/core";
-import { FormInfoModel } from "../../../models/formInfo.model";
-import { PanelComponent } from "../../panel/panel.component";
-import { DayInfoDto } from "@todolist/models/day-info.dto";
+import moment from "moment";
 
 @Component({
   selector: "b-calendar-item",

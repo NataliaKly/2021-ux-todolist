@@ -34,15 +34,6 @@ export class EventListComponent {
       this.pageId = params.id;
       this.eventService.getEventsList().subscribe((events: EventDto[]) => {
         this.events = events;
-
-        // this.eventInfo.title = infoView?.title;
-        // this.eventInfo.place = infoView?.place;
-        // this.date = new Date();
-        // const [hours, minutes] = [this.date.getHours(), this.date.getMinutes()];
-        // this.eventTime = hours + ":" + minutes;
-        // if ( i < currentTime; i++) {
-        //   this.isTrue = true;
-        // }
       });
     });
   }
@@ -50,7 +41,6 @@ export class EventListComponent {
     const momentDate = moment(); //тут лежит текущая дата
     const momentTime = moment(timeEvent); //тут момент для даты события
     // ( но она же тоже строкой является)
-    console.log(momentDate);
     if (moment(momentTime).isBefore(momentDate)) {
       //первое у нас должно быть текущая дата,
       // с ней мы сравниваем время из события и если оно раньше было то применяем класс

@@ -1,43 +1,65 @@
-<div class="popup">
-    <div class="popup__title">
-        <h4>{{ dateString }}</h4>
+<div class="panel">
+    <div class="panel__title">
+        <h4>{{ date }}</h4>
     </div>
-    <div class="popup__events">
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title class="panel__events-title">
+                <svg-icon class="panel__buttons-icon" src="assets/icons/compass-dark.svg"></svg-icon>
+                {{ dayInfoModel?.eventsNumber }}
+                Событий
+                <button class="panel__button" mat-stroked-button [color]="'primary'">
+                    Подробнее
+                    <svg-icon class="panel__buttons-icon" src="assets/icons/arrowRight.svg"></svg-icon>
+                </button>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="panel__events" *ngFor="let event of dayInfoModel.events">
+            <div class="panel__info" [ngClass]="completion(event.date)">
+                <div class="panel__info-inputText">
+                    <div class="panel__info-inputText">{{ event.title }}</div>
+                    <div class="panel__info-input">
+                        <svg-icon class="panel__info-icon" src="assets/icons/watch.svg"> </svg-icon>
+                        <div class="panel__info-inputText">{{ timeString(event.date) }}</div>
+                    </div>
+
+                    <div class="panel__info-input">
+                        <svg-icon class="panel__info-icon" src="assets/icons/place.svg"> </svg-icon>
+                        <div class="panel__info-inputText">{{ event.place }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+
+    <div class="panel__tasks" *ngFor="let tasks of dayInfoModel.tasks">
         <mat-expansion-panel>
             <mat-expansion-panel-header>
-                <mat-panel-title class="popup__events-title">
-                    <svg-icon class="popup__buttons-icon" src="assets/icons/compass-dark.svg"></svg-icon>
-                    {{ dayInfoModel?.eventsNumber }} Событий
+                <mat-panel-title class="panel_tasks-title">
+                    <svg-icon class="panel__buttons-icon" src="assets/icons/suitcase.svg"></svg-icon>
+                    {{ dayInfoModel?.taskNumber }} Задач
                 </mat-panel-title>
-
-                <!--                <mat-panel-description> This is a summary of the content </mat-panel-description>-->
             </mat-expansion-panel-header>
 
-            <p>стрижка</p>
-            <p>встреча</p>
-        </mat-expansion-panel>
-        <button class="popup__button" mat-stroked-button [color]="'primary'">
-            Подробнее
-            <svg-icon class="popup__buttons-icon" src="assets/icons/arrowRight.svg"></svg-icon>
-        </button>
-    </div>
-    <div class="popup__tasks">
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title class="popup_tasks-title">
-                    <svg-icon class="popup__buttons-icon" src="assets/icons/suitcase.svg"></svg-icon>
-                    Задачи
-                </mat-panel-title>
+            <div class="panel__info" [ngClass]="completion(tasks.date)">
+                <div class="panel__info-inputText">
+                    <div class="panel__info-inputText">{{ tasks.title }}</div>
+                    <div class="panel__info-input">
+                        <svg-icon class="panel__info-icon" src="assets/icons/watch.svg"> </svg-icon>
+                        <div class="panel__info-inputText">{{ timeString(tasks.date) }}</div>
+                    </div>
 
-                <!--                <mat-panel-description> This is a summary of the content </mat-panel-description>-->
-            </mat-expansion-panel-header>
-
-            <p>стрижка</p>
-            <p>встреча</p>
+                    <div class="panel__info-input">
+                        <svg-icon class="panel__info-icon" src="assets/icons/place.svg"> </svg-icon>
+                        <div class="panel__info-inputText">{{ tasks.finished }}</div>
+                    </div>
+                </div>
+            </div>
         </mat-expansion-panel>
-        <button class="popup__button" mat-stroked-button [color]="'primary'">
+        <button class="panel__button" mat-stroked-button [color]="'primary'">
             Подробнее
-            <svg-icon class="popup__buttons-icon" src="assets/icons/arrowRight.svg"></svg-icon>
+            <svg-icon class="panel__buttons-icon" src="assets/icons/arrowRight.svg"></svg-icon>
         </button>
     </div>
 </div>

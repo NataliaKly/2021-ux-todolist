@@ -1,12 +1,17 @@
 @import "../../../assets/styles/common/shared";
 
+//панелька открывается снизу всегда, как сделать ее справ от календаря
+//пыталсь поместить в разные дивы, но получается вложенность, которой быть не должно
 .calendar {
-    width: 70%;
+    width: 100%;
     padding: 20px;
+    flex-direction: row;
+    display: flex;
     @media (max-width: 400px) {
         width: 100%;
         justify-content: space-evenly;
     }
+
     &__title {
         color: @color-main-violet-dark;
     }
@@ -34,16 +39,26 @@
         &-box {
             background: @color-main-gray-light;
             flex-basis: 14%;
+            &:hover {
+                color: @color-main-violet-light;
+            }
         }
     }
     &__buttons {
         width: 100%;
         flex-direction: row;
         align-items: center;
+
         &-mat {
             margin: 20px;
             border-color: @color-main-violet-middle;
             border-radius: 16px;
+            &:active {
+                background: @color-main-green-dark;
+            }
         }
     }
+}
+.panel {
+    display: flex;
 }

@@ -36,6 +36,7 @@ export class EventNewComponent {
     const dateString = this.date;
     return dateString.toDateString();
   }
+
   addNewEvent() {
     const timeEvent = this.formInfo.time.split(":");
     const timeHours = Number.parseInt(timeEvent[0]);
