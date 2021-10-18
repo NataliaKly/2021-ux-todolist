@@ -1,0 +1,20 @@
+<b-page-title [title]="'yutuytyut'"></b-page-title>
+
+<div class="task" [routerLink]="['/new-task']">
+    <div class="task__title">
+        <h3>Новая задача</h3>
+    </div>
+
+    <div class="task__form">
+        <div class="task__input-form">
+            <textarea class="task__input" [(ngModel)]="infoTask.title" [value]="infoTask.title"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="task__form">
+    <button class="task__form-button" mat-button mat-raised-button [color]="'primary'">Cancel</button>
+    <button class="task__form-button _flex-end" mat-button mat-raised-button [color]="'primary'" (click)="addNewTask()">
+        Save
+    </button>
+</div>

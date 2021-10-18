@@ -10,6 +10,7 @@ import { MatInputModule } from "@angular/material/input";
 import { EventService } from "./service/event.service";
 import { CalendarService } from "./service/calendar.service";
 import { DatesService } from "./service/dates.service";
+import { TaskService } from "./service/task.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,7 @@ import { DatesService } from "./service/dates.service";
     BrowserAnimationsModule,
     MatInputModule
   ],
-  providers: [EventService, CalendarService, DatesService],
+  providers: [EventService, CalendarService, DatesService, TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

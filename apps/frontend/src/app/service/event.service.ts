@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { FormInfoModel } from "../models/formInfo.model";
 import { EventDto } from "@todolist/models/event.dto";
+import { DealDto } from "@todolist/models/deal.dto";
 
 @Injectable()
 export class EventService {
@@ -20,6 +21,7 @@ export class EventService {
   postNewEvent(body: { event: EventDto }): Observable<EventDto> {
     return this.http.post<EventDto>("/api/events/", body);
   }
+
   // getInfoEvent(pageId: string, info: { event: EventDto }): Observable<EventDto> {
   //   return this.http.get<EventDto>("/api/events/" + pageId);
   // }

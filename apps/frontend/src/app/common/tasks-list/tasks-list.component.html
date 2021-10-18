@@ -1,0 +1,21 @@
+<b-page-title [title]="'eere'"></b-page-title>
+<div class="event-list" [routerLink]="['/tasks-list', pageId]" *ngFor="let tasks of tasks">
+    <div class="event-list__title">
+        {{ dateString(tasks.date) }}
+        <button class="event-list__title-button" mat-stroked-button [color]="'primary'">+ Добавить</button>
+    </div>
+    <div class="event-list__info" [ngClass]="completion(tasks.date)">
+        <div class="event-list__info-inputText">
+            <div class="event-list__info-inputText">{{ tasks.title }}</div>
+            <div class="event-list__info-input">
+                <svg-icon class="event-list__info-icon" src="assets/icons/watch.svg"> </svg-icon>
+                <div class="event-list__info-inputText">{{ timeString(tasks.date) }}</div>
+            </div>
+
+            <div class="event-list__info-input">
+                <svg-icon class="event-list__info-icon" src="assets/icons/place.svg"> </svg-icon>
+                <div class="event-list__info-inputText">{{ tasks.place }}</div>
+            </div>
+        </div>
+    </div>
+</div>

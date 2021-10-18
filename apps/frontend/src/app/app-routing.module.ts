@@ -6,6 +6,8 @@ import { EventViewComponent } from "./common/event-view/event-view.component";
 import { HomePageComponent } from "./common/home-page/home-page.component";
 import { EventNewComponent } from "./common/event-new/event-new.component";
 import { EventListComponent } from "./common/event-list/event-list.component";
+import { TasksListComponent } from "./common/tasks-list/tasks-list.component";
+import { TaskNewComponent } from "./common/task-new/task-new.component";
 
 const routes: Routes = [
   {
@@ -17,11 +19,16 @@ const routes: Routes = [
     component: EventNewComponent
   },
   {
+    path: "new-task",
+    component: TaskNewComponent
+  },
+  {
     path: "event/:id",
     component: EventPageComponent
   },
   { path: "event-view/:id", component: EventViewComponent },
   { path: "event-list/:id", component: EventListComponent },
+  { path: "tasks-list/:id", component: TasksListComponent },
   { path: "", component: CalendarComponent, pathMatch: "full" }
 ];
 @NgModule({

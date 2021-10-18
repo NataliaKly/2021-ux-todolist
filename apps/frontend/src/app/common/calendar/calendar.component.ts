@@ -34,21 +34,28 @@ export class CalendarComponent {
 
     let counEmtyCards: number;
 
+    const dayWeek = firstDayOfCurrentMonthMoment.day();
     // const counEmtyCards = currentMonth.isoWeekday(1);
 
     // оесть раз поставлен 0, значит это должен быть понедельник, и преобразовала его к формату
 
     //посмотреть день ндели и вчислить сколько карточек надо дорисовать
-    if (firstDayOfCurrentMonthMoment != firstDayOfCurrentMonthMoment.isoWeekday(4)) {
-      counEmtyCards = 4;
-    } else if (firstDayOfCurrentMonthMoment != firstDayOfCurrentMonthMoment.isoWeekday(3)) {
-      counEmtyCards = 3;
-    } else if (firstDayOfCurrentMonthMoment != firstDayOfCurrentMonthMoment.isoWeekday(2)) {
+    if (dayWeek == 0) {
+      counEmtyCards = 0;
+    } else if (dayWeek == 1) {
+      counEmtyCards == 1;
+    } else if (dayWeek == 2) {
       counEmtyCards = 2;
+    } else if (dayWeek == 3) {
+      counEmtyCards = 3;
+    } else if (dayWeek == 4) {
+      counEmtyCards = 4;
+    } else if (dayWeek == 5) {
+      counEmtyCards = 5;
     } else {
-      counEmtyCards = 1;
+      counEmtyCards = 6;
     }
-    console.log(counEmtyCards);
+    // console.log(counEmtyCards);
     //   } else {
     //   (firstDayOfCurrentMonthMoment.isoWeekday(2));
     //     return firstDayOfCurrentMonthMoment++;
