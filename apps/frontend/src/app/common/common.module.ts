@@ -20,6 +20,8 @@ import { CalendarItemComponent } from "./calendar/calendar-item/calendar-item.co
 import { EventListComponent } from "./event-list/event-list.component";
 import { TasksListComponent } from "./tasks-list/tasks-list.component";
 import { TaskNewComponent } from "./task-new/task-new.component";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { TaskViewComponent } from "./task-view/task-view.component";
 
 const components = [
   PageTitleComponent,
@@ -32,7 +34,8 @@ const components = [
   HomePageComponent,
   EventListComponent,
   TasksListComponent,
-  TaskNewComponent
+  TaskNewComponent,
+  TaskViewComponent
 ];
 
 @NgModule({
@@ -47,7 +50,8 @@ const components = [
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCheckboxModule
   ],
   declarations: [
     EventPageComponent,
@@ -60,7 +64,8 @@ const components = [
     HomePageComponent,
     EventListComponent,
     TasksListComponent,
-    TaskNewComponent
+    TaskNewComponent,
+    TaskViewComponent
   ],
   exports: [
     EventPageComponent,
@@ -73,7 +78,8 @@ const components = [
     HomePageComponent,
     EventListComponent,
     TasksListComponent,
-    TaskNewComponent
+    TaskNewComponent,
+    TaskViewComponent
   ]
 })
 export class CommonModule {}

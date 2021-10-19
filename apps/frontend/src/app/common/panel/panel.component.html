@@ -6,10 +6,12 @@
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title class="panel__events-title">
-                <svg-icon class="panel__buttons-icon" src="assets/icons/compass-dark.svg"></svg-icon>
-                {{ dayInfoModel?.eventsNumber }}
-                Событий
-                <button class="panel__button" mat-stroked-button [color]="'primary'">
+                <div>
+                    <svg-icon class="panel__buttons-icon" src="assets/icons/compass-dark.svg"></svg-icon>
+                    {{ dayInfoModel?.eventsNumber }}
+                    Событий
+                </div>
+                <button class="panel__events-button" mat-stroked-button [color]="'primary'">
                     Подробнее
                     <svg-icon class="panel__buttons-icon" src="assets/icons/arrowRight.svg"></svg-icon>
                 </button>
@@ -33,33 +35,45 @@
         </div>
     </mat-expansion-panel>
 
-    <div class="panel__tasks" *ngFor="let tasks of dayInfoModel.tasks">
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title class="panel_tasks-title">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title class="panel__tasks-title">
+                <div>
                     <svg-icon class="panel__buttons-icon" src="assets/icons/suitcase.svg"></svg-icon>
                     {{ dayInfoModel?.taskNumber }} Задач
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
+                </div>
+                <button class="panel__tasks-button" mat-stroked-button [color]="'primary'">
+                    Подробнее
+                    <svg-icon class="panel__buttons-icon" src="assets/icons/arrowRight.svg"></svg-icon>
+                </button>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="panel__tasks" *ngFor="let tasks of dayInfoModel.tasks">
             <div class="panel__info" [ngClass]="completion(tasks.date)">
                 <div class="panel__info-inputText">
+                    <h4>Задача:</h4>
                     <div class="panel__info-inputText">{{ tasks.title }}</div>
-                    <div class="panel__info-input">
-                        <svg-icon class="panel__info-icon" src="assets/icons/watch.svg"> </svg-icon>
-                        <div class="panel__info-inputText">{{ timeString(tasks.date) }}</div>
-                    </div>
+
+                    <div class="panel__info-inputText">{{ timeString(tasks.date) }}</div>
 
                     <div class="panel__info-input">
-                        <svg-icon class="panel__info-icon" src="assets/icons/place.svg"> </svg-icon>
-                        <div class="panel__info-inputText">{{ tasks.finished }}</div>
+                        <div class="panel__info-inputText" *ngIf="tasks.urgent">urgent</div>
+                        <svg-icon
+                            class="panel__info-icon"
+                            src="assets/icons/urgent.svg"
+                            *ngIf="tasks.urgent"
+                        ></svg-icon>
+                    </div>
+                    <div class="panel__info-input">
+                        <div class="panel__info-inputText" *ngIf="tasks.important">important</div>
+                        <svg-icon
+                            class="panel__info-icon"
+                            src="assets/icons/important.svg"
+                            *ngIf="tasks.important"
+                        ></svg-icon>
                     </div>
                 </div>
             </div>
-        </mat-expansion-panel>
-        <button class="panel__button" mat-stroked-button [color]="'primary'">
-            Подробнее
-            <svg-icon class="panel__buttons-icon" src="assets/icons/arrowRight.svg"></svg-icon>
-        </button>
-    </div>
+        </div>
+    </mat-expansion-panel>
 </div>

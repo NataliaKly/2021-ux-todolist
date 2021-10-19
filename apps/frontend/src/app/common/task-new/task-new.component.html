@@ -10,6 +10,10 @@
             <textarea class="task__input" [(ngModel)]="infoTask.title" [value]="infoTask.title"></textarea>
         </div>
     </div>
+    <div class="task__checkbox">
+        <mat-checkbox [(ngModel)]="infoTask.important" [value]="infoTask.important"> important </mat-checkbox>
+        <mat-checkbox [(ngModel)]="infoTask.urgent" [value]="infoTask.urgent"> urgent </mat-checkbox>
+    </div>
 </div>
 
 <div class="task__form">

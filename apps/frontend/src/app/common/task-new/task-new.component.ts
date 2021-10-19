@@ -16,29 +16,42 @@ import { TaskService } from "../../service/task.service";
   styleUrls: ["./task-new.component.less"]
 })
 export class TaskNewComponent {
-  constructor(private taskService: TaskService) {}
   public pageId: string;
+  public date: Date;
   public infoTask: infoTask = {
     id: "",
     title: "",
     date: "",
-    finished: true,
-    important: true,
-    urgent: true
+    finished: false,
+    important: false,
+    urgent: false
   };
+  constructor(private taskService: TaskService) {}
+  ngOnInit() {
+    // this.route.params.subscribe(params => {
+    //   this.pageId = params.id;
+    //   this.eventService.getPageById(this.pageId).subscribe((pageForm: EventDto) => {
+    //     this.formInfo.title = pageForm?.title;
+    //     this.formInfo.place = pageForm?.place;
+    this.date = new Date();
+    // const [hours, minutes] = [this.date.getHours(), this.date.getMinutes()];
+    // this.formInfo.time = hours + ":" + minutes;
+  }
+
   addNewTask() {
+    const momentDate = moment(this.date);
     const info: DealDto = {
       id: this.pageId,
       title: this.infoTask.title,
-      date: "",
+      date: momentDate.toISOString(true),
       finished: true,
-      important: true,
-      urgent: true
+      important: this.infoTask.important,
+      urgent: this.infoTask.urgent
     };
     const body = {
-      tasks: info
+      deal: info
     };
-    this.taskService.postNewTask(body).subscribe((newInfo: EventDto) => {
+    this.taskService.postNewTask(body).subscribe((newInfo: DealDto) => {
       newInfo;
     });
   }

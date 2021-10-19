@@ -1,0 +1,61 @@
+@import "../../../assets/styles/common/shared";
+
+@tree-svg: "../../../assets/icons/tree.svg";
+
+.event-view {
+    border-bottom: 2px solid @color-main-gray-middle;
+    width: 100%;
+    @media (max-width: 400px) {
+        width: 100%;
+    }
+
+    &__title {
+        width: 100%;
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+        display: flex;
+        margin-top: 20px;
+        padding: 20px;
+        flex-basis: 14%;
+        @media (max-width: 360px) {
+            flex-direction: column;
+        }
+        &-button {
+            border-radius: 16px;
+            flex-basis: 30%;
+
+            &._flex-end {
+                margin-left: 20px;
+            }
+            @media (max-width: 360px) {
+                width: 50px;
+                font-size: 15px;
+                line-height: 48px;
+            }
+        }
+    }
+
+    &__info {
+        width: 100%;
+        margin-left: 30px;
+        margin-top: 30px;
+        flex-direction: row;
+
+        &-text {
+            color: @color-main-gray-text;
+        }
+
+        &-input {
+            display: flex;
+        }
+
+        &-icon {
+            margin-right: 10px;
+        }
+
+        &-inputText {
+            font-size: 20px;
+        }
+    }
+}

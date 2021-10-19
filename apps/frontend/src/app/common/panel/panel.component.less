@@ -14,11 +14,19 @@
         line-height: 40px;
         font-size: 24px;
     }
+    &__info {
+        &:hover {
+            background: @color-main-violet-light;
+        }
+    }
+
     &__events {
         width: 100%;
-        display: flex;
-        justify-content: space-around;
 
+        &-button {
+            border-radius: 16px;
+            height: 48px;
+        }
         & .mat-expansion-panel {
             box-shadow: none;
         }
@@ -28,17 +36,27 @@
 
         &-title {
             width: 100%;
-            flex-basis: 50%;
+            //flex-basis: 50%;
+            justify-content: space-around;
+        }
+        &__info {
+            border-block: 2px solid @color-main-gray-middle;
+
+            &-input {
+                flex-direction: row;
+                display: flex;
+                justify-content: flex-start;
+            }
         }
     }
     &__tasks {
         width: 100%;
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-        &-title {
-            width: 100%;
-            flex-basis: 50%;
+        //justify-content: space-around;
+        flex-direction: row;
+
+        &-button {
+            border-radius: 16px;
+            height: 48px;
         }
         & .mat-expansion-panel {
             box-shadow: none;
@@ -46,9 +64,21 @@
         & .mat-expansion-panel-header.mat-expanded {
             height: 48px;
         }
+        &-title {
+            width: 100%;
+            justify-content: space-around;
+        }
     }
-    &__button {
-        border-radius: 16px;
-        height: 48px;
+    &__info {
+        border-block: 2px solid @color-main-gray-middle;
+
+        &-input {
+            flex-direction: row;
+            display: flex;
+            justify-content: space-around;
+        }
+        &-inputText {
+            color: @color-main-violet-middle;
+        }
     }
 }

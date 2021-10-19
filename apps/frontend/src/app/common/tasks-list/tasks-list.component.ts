@@ -21,15 +21,15 @@ export class TasksListComponent {
   tasks: EventDto[] = [];
   taskTime: string;
   constructor(private route: ActivatedRoute, private eventService: EventService) {}
-
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.pageId = params.id;
-      this.eventService.getEventsList().subscribe((tasks: EventDto[]) => {
-        this.tasks = tasks;
-      });
-    });
-  }
+  //
+  // ngOnInit() {
+  //   this.route.params.subscribe(params => {
+  //     this.pageId = params.id;
+  //     this.eventService.getEventsList().subscribe((tasks: EventDto[]) => {
+  //       this.tasks = tasks;
+  //     });
+  //   });
+  // }
   completion(timeEvent: string): string {
     const momentDate = moment(); //тут лежит текущая дата
     const momentTime = moment(timeEvent); //тут момент для даты события

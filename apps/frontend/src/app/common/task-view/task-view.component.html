@@ -1,0 +1,48 @@
+<b-page-title [title]="'yutuytyut'"></b-page-title>
+<div class="event-view" [routerLink]="['/task-view', pageId]">
+    <div class="event-view__title">
+        <h3 class="event-view__title-wrapper">
+            {{ dateString }}
+            <button class="event-view__title-button" mat-flat-button [color]="'primary'">Следующее</button>
+        </h3>
+        <div>
+            <button class="event-view__title-button" mat-stroked-button [color]="'primary'">
+                <svg-icon src="assets/icons/edit.svg"> </svg-icon>
+                Редактировать
+            </button>
+
+            <button
+                class="event-view__title-button _flex-end"
+                mat-stroked-button
+                [color]="'primary'"
+                (click)="deleteTask(pageId)"
+            >
+                <svg-icon src="assets/icons/delete.svg"> </svg-icon>
+                Удалить
+            </button>
+        </div>
+    </div>
+
+    <div>
+        <div class="event-view__info">
+            <div class="event-view__info-input">
+                <div class="event-view__info-inputText">{{ infoTask.title }}</div>
+            </div>
+        </div>
+
+        <div class="event-view__info">
+            <mat-checkbox [(ngModel)]="infoTask.finished" [value]="infoTask.finished" *ngIf="infoTask.finished">
+                finished
+            </mat-checkbox>
+        </div>
+        <div class="event-view__info">
+            <div class="event-view__info-inputText" *ngIf="infoTask.urgent">urgent</div>
+        </div>
+        <div class="event-view__info">
+            <div class="event-view__info-inputText" *ngIf="infoTask.important">important</div>
+        </div>
+    </div>
+    <button class="task__form-button _flex-end" mat-button mat-raised-button [color]="'primary'" (click)="saveTask()">
+        Save
+    </button>
+</div>
