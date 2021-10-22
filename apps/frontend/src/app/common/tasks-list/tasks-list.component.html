@@ -1,20 +1,27 @@
 <b-page-title [title]="'eere'"></b-page-title>
-<div class="event-list" [routerLink]="['/tasks-list', pageId]" *ngFor="let tasks of tasks">
-    <div class="event-list__title">
+<div class="task-list" [routerLink]="['/tasks-list']" *ngFor="let tasks of tasks">
+    <div class="task-list__title">
         {{ dateString(tasks.date) }}
-        <button class="event-list__title-button" mat-stroked-button [color]="'primary'">+ Добавить</button>
+        <button class="task-list__title-button" mat-stroked-button [color]="'primary'">+ Добавить</button>
     </div>
-    <div class="event-list__info" [ngClass]="completion(tasks.date)">
-        <div class="event-list__info-inputText">
-            <div class="event-list__info-inputText">{{ tasks.title }}</div>
-            <div class="event-list__info-input">
-                <svg-icon class="event-list__info-icon" src="assets/icons/watch.svg"> </svg-icon>
-                <div class="event-list__info-inputText">{{ timeString(tasks.date) }}</div>
-            </div>
+    <div class="task-list__info" [ngClass]="completion(tasks.date)">
+        <div class="task-list__info-inputText">
+            <div class="task-list__info-inputText">{{ tasks.title }}</div>
 
-            <div class="event-list__info-input">
-                <svg-icon class="event-list__info-icon" src="assets/icons/place.svg"> </svg-icon>
-                <div class="event-list__info-inputText">{{ tasks.place }}</div>
+            <div class="task-list__info-input">
+                <svg-icon class="task-list__info-icon" src="assets/icons/watch.svg"> </svg-icon>
+                <div class="task-list__info-inputText">{{ timeString(tasks.date) }}</div>
+            </div>
+            <div class="event-view__info">
+                <mat-checkbox [(ngModel)]="tasks.finished" [value]="tasks.finished" *ngIf="tasks.finished">
+                    finished
+                </mat-checkbox>
+            </div>
+            <div class="event-view__info">
+                <div class="event-view__info-inputText" *ngIf="tasks.urgent">urgent</div>
+            </div>
+            <div class="event-view__info">
+                <div class="event-view__info-inputText" *ngIf="tasks.important">important</div>
             </div>
         </div>
     </div>

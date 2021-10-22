@@ -1,10 +1,11 @@
 import { Component, Input } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { EventDto } from "@todolist/models/event.dto";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { EventService } from "../../service/event.service";
 import { FormInfoModel } from "../../models/formInfo.model";
 import moment from "moment";
+import { DayInfoDto } from "@todolist/models/day-info.dto";
 
 @Component({
   selector: "b-event-view",
@@ -25,8 +26,14 @@ export class EventViewComponent {
   public pageId: string;
   public infoView: EventDto;
   public date;
-
-  constructor(private route: ActivatedRoute, private eventService: EventService) {}
+  public infoEvent: FormInfoModel = {
+    title: "",
+    time: "",
+    date: "",
+    place: "",
+    description: ""
+  };
+  constructor(private route: ActivatedRoute, private eventService: EventService, private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -44,5 +51,8 @@ export class EventViewComponent {
   get dateString(): string {
     const momentDate = moment(this.date);
     return momentDate.format("DD.MM.YYYY");
+  }
+  openEditingEvents(pageId: string) {
+    this.router.navigate(["/event-edit/" + pageId]);
   }
 }

@@ -16,9 +16,6 @@ export class PageTitleComponent {
   constructor(private route: ActivatedRoute, private eventService: EventService, private router: Router) {}
 
   openCalendar() {
-    this.eventService.getPageById(this.pageId).subscribe(params => {
-      this.pageId = params.id;
-      this.router.navigate(["/home-page"]);
-    });
+    this.router.navigate(["/home-page"]);
   }
 }

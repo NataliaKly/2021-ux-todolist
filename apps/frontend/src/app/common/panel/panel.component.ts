@@ -1,12 +1,13 @@
 import { Component, Input, Output } from "@angular/core";
 import { EventDto } from "@todolist/models/event.dto";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { EventService } from "../../service/event.service";
 import { FormInfoModel } from "../../models/formInfo.model";
 import moment from "moment";
 import { DayInfoDto } from "@todolist/models/day-info.dto";
 import { CalendarService } from "../../service/calendar.service";
 import { DealDto } from "@todolist/models/deal.dto";
+import { TaskService } from "../../service/task.service";
 
 @Component({
   selector: "b-panel",
@@ -15,12 +16,14 @@ import { DealDto } from "@todolist/models/deal.dto";
 })
 export class PanelComponent {
   @Output() popupVisible: boolean;
-
+  public pageId: string;
+  public dateList;
   @Input() dayInfoModel: DayInfoDto; //вот наша модель из цикла из которой мы хотим что-то брать
   constructor(
     private route: ActivatedRoute,
     private eventService: EventService,
-    private calendarService: CalendarService
+    private router: Router,
+    private taskService: TaskService
   ) {}
 
   get date() {
@@ -47,6 +50,13 @@ export class PanelComponent {
       return "";
     }
   }
+
+  openDetailsEvents() {
+    this.eventService.dateEventsList.next(this.dayInfoModel.date);
+    this.router.navigate(["/event-list"]);
+  }
+  openDetailsTasks() {
+    this.taskService.dateTasksList.next(this.dayInfoModel.date);
+    this.router.navigate(["/tasks-list"]);
+  }
 }
-// рисуется mat столко же раз, сколько всего событий, как исправить
-// в списке событий так же дата рисуется столько же раз сколько всего событий

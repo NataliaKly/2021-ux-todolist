@@ -11,7 +11,12 @@
                     {{ dayInfoModel?.eventsNumber }}
                     Событий
                 </div>
-                <button class="panel__events-button" mat-stroked-button [color]="'primary'">
+                <button
+                    class="panel__events-button"
+                    mat-stroked-button
+                    [color]="'primary'"
+                    (click)="openDetailsEvents()"
+                >
                     Подробнее
                     <svg-icon class="panel__buttons-icon" src="assets/icons/arrowRight.svg"></svg-icon>
                 </button>
@@ -42,7 +47,7 @@
                     <svg-icon class="panel__buttons-icon" src="assets/icons/suitcase.svg"></svg-icon>
                     {{ dayInfoModel?.taskNumber }} Задач
                 </div>
-                <button class="panel__tasks-button" mat-stroked-button [color]="'primary'">
+                <button class="panel__tasks-button" mat-stroked-button [color]="'primary'" (click)="openDetailsTasks()">
                     Подробнее
                     <svg-icon class="panel__buttons-icon" src="assets/icons/arrowRight.svg"></svg-icon>
                 </button>

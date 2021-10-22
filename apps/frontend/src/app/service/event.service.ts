@@ -1,16 +1,21 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { FormInfoModel } from "../models/formInfo.model";
 import { EventDto } from "@todolist/models/event.dto";
 import { DealDto } from "@todolist/models/deal.dto";
 
 @Injectable()
 export class EventService {
+  public dateEventsList = new Subject<string>(); //обозначили сабджект
+
   constructor(private http: HttpClient) {}
 
-  getEventsList(date?: Date): Observable<EventDto[]> {
-    return this.http.get<EventDto[]>("/api/events/");
+  postDateEventsList(body: { date: string }): Observable<EventDto[]> {
+    return this.http.post<EventDto[]>("/api/events/forDate", body);
+  }
+  postEventsList(body: { event: EventDto }): Observable<EventDto[]> {
+    return this.http.post<EventDto[]>("/api/events/", body);
   }
   getPageById(pageId: string): Observable<EventDto> {
     return this.http.get<EventDto>("/api/events/" + pageId);

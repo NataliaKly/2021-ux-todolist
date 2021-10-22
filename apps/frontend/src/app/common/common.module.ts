@@ -7,7 +7,7 @@ import { AppRoutingModule } from "../app-routing.module";
 import { RouterModule } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
-import { EventPageComponent } from "./event-page/event-page.component";
+import { EventEditComponent } from "./event-edit/event-edit.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
 import { CalendarComponent } from "./calendar/calendar.component";
@@ -54,7 +54,7 @@ const components = [
     MatCheckboxModule
   ],
   declarations: [
-    EventPageComponent,
+    EventEditComponent,
     PageTitleComponent,
     CalendarComponent,
     EventViewComponent,
@@ -68,7 +68,7 @@ const components = [
     TaskViewComponent
   ],
   exports: [
-    EventPageComponent,
+    EventEditComponent,
     PageTitleComponent,
     CalendarComponent,
     EventViewComponent,

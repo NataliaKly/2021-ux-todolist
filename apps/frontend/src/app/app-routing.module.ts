@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { EventPageComponent } from "./common/event-page/event-page.component";
+import { EventEditComponent } from "./common/event-edit/event-edit.component";
 import { CalendarComponent } from "./common/calendar/calendar.component";
 import { EventViewComponent } from "./common/event-view/event-view.component";
 import { HomePageComponent } from "./common/home-page/home-page.component";
@@ -24,12 +24,12 @@ const routes: Routes = [
     component: TaskNewComponent
   },
   {
-    path: "event/:id",
-    component: EventPageComponent
+    path: "event-edit/:id",
+    component: EventEditComponent
   },
   { path: "event-view/:id", component: EventViewComponent },
-  { path: "event-list/:id", component: EventListComponent },
-  { path: "tasks-list/:id", component: TasksListComponent },
+  { path: "event-list", component: EventListComponent },
+  { path: "tasks-list", component: TasksListComponent },
   { path: "task-view/:id", component: TaskViewComponent },
   { path: "", component: CalendarComponent, pathMatch: "full" }
 ];

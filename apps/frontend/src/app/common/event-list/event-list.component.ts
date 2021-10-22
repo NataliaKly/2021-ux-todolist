@@ -1,9 +1,9 @@
 import { Component, Input } from "@angular/core";
-import { FormInfoModel } from "../../models/formInfo.model";
 import { EventDto } from "@todolist/models/event.dto";
 import { ActivatedRoute } from "@angular/router";
 import { EventService } from "../../service/event.service";
 import moment from "moment";
+import { FormInfoModel } from "../../models/formInfo.model";
 
 @Component({
   selector: "b-event-list",
@@ -13,30 +13,37 @@ import moment from "moment";
 export class EventListComponent {
   @Input()
   title = "Title";
-  // public eventInfo: FormInfoModel = {
-  //   title: "",
-  //   time: "",
-  //   date: "",
-  //   place: "",
-  //   description: ""
-  // };
   public info: string;
   public pageId: string;
   public infoView: EventDto;
   public date;
   isTrue = false;
+  public eventInfo: EventDto = {
+    id: "",
+    title: "",
+    date: "",
+    place: "",
+    description: ""
+  };
   events: EventDto[] = [];
   eventTime: string;
   constructor(private route: ActivatedRoute, private eventService: EventService) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.pageId = params.id;
-      this.eventService.getEventsList().subscribe((events: EventDto[]) => {
+    this.eventService.dateEventsList.subscribe((date: string) => {
+      const momentDate = moment(this.date);
+      momentDate.format("DD.MM.YYYY");
+      this.date = date;
+      const body = {
+        date: this.date
+      };
+
+      this.eventService.postDateEventsList(body).subscribe((events: EventDto[]) => {
         this.events = events;
       });
     });
   }
+
   completion(timeEvent: string): string {
     const momentDate = moment(); //тут лежит текущая дата
     const momentTime = moment(timeEvent); //тут момент для даты события

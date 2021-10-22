@@ -1,11 +1,12 @@
 import { DealDto } from "@todolist/models/deal.dto";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { EventDto } from "@todolist/models/event.dto";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class TaskService {
+  public dateTasksList = new Subject<string>(); //обозначили сабджект
   constructor(private http: HttpClient) {}
   getPageById(pageId: string): Observable<DealDto> {
     return this.http.get<DealDto>("/api/deals/" + pageId);
@@ -18,5 +19,8 @@ export class TaskService {
   }
   postNewTask(body: { deal: DealDto }): Observable<DealDto> {
     return this.http.post<DealDto>("/api/deals/", body);
+  }
+  postTasksList(body: { date: string }): Observable<DealDto[]> {
+    return this.http.post<DealDto[]>("/api/deals/", body);
   }
 }

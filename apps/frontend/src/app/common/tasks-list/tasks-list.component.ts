@@ -4,6 +4,8 @@ import { EventDto } from "@todolist/models/event.dto";
 import { ActivatedRoute } from "@angular/router";
 import { EventService } from "../../service/event.service";
 import moment from "moment";
+import { DealDto } from "@todolist/models/deal.dto";
+import { TaskService } from "../../service/task.service";
 
 @Component({
   selector: "b-tasks-list",
@@ -18,18 +20,24 @@ export class TasksListComponent {
   public infoView: EventDto;
   public date;
   isTrue = false;
-  tasks: EventDto[] = [];
+  tasks: DealDto[] = [];
   taskTime: string;
-  constructor(private route: ActivatedRoute, private eventService: EventService) {}
-  //
-  // ngOnInit() {
-  //   this.route.params.subscribe(params => {
-  //     this.pageId = params.id;
-  //     this.eventService.getEventsList().subscribe((tasks: EventDto[]) => {
-  //       this.tasks = tasks;
-  //     });
-  //   });
-  // }
+  constructor(private route: ActivatedRoute, private eventService: EventService, private tasksService: TaskService) {}
+
+  ngOnInit() {
+    this.tasksService.dateTasksList.subscribe((date: string) => {
+      const momentDate = moment(this.date);
+      momentDate.format("DD.MM.YYYY");
+
+      const body = {
+        date: momentDate.toISOString(true)
+      };
+      this.date = date;
+      this.tasksService.postTasksList(body).subscribe((tasks: DealDto[]) => {
+        this.tasks = tasks;
+      });
+    });
+  }
   completion(timeEvent: string): string {
     const momentDate = moment(); //тут лежит текущая дата
     const momentTime = moment(timeEvent); //тут момент для даты события
@@ -53,4 +61,9 @@ export class TasksListComponent {
     //todo
     return momentDate.format("HH:mm");
   }
+  // dateForTasksList() {
+  //   return this.tasksService.dateTasksList.subscribe((date: string) => {
+  //     this.date = date;
+  //   });
+  // }
 }

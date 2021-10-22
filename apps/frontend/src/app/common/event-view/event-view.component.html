@@ -6,7 +6,12 @@
             <button class="event-view__title-button" mat-flat-button [color]="'primary'">Следующее</button>
         </h3>
         <div>
-            <button class="event-view__title-button" mat-stroked-button [color]="'primary'">
+            <button
+                class="event-view__title-button"
+                mat-stroked-button
+                [color]="'primary'"
+                (click)="openEditingEvents(pageId)"
+            >
                 <svg-icon src="assets/icons/edit.svg"> </svg-icon>
                 Редактировать
             </button>

@@ -1,5 +1,5 @@
 <b-page-title [title]="'yutuytyut'"></b-page-title>
-<div class="event-page" [routerLink]="['/event', pageId]">
+<div class="event-page" [routerLink]="['/event-edit', pageId]">
     <div class="event-page__title">
         <h3>{{ dateString }}</h3>
     </div>
@@ -34,7 +34,15 @@
 </div>
 
 <div class="event-page__form">
-    <button class="event-page__form-button" mat-button mat-raised-button [color]="'primary'">Cancel</button>
+    <button
+        class="event-page__form-button"
+        mat-button
+        mat-raised-button
+        [color]="'primary'"
+        (click)="CancelInfo(pageId)"
+    >
+        Cancel
+    </button>
     <button
         class="event-page__form-button _flex-end"
         (click)="saveInfo()"

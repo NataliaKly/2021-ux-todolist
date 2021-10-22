@@ -1,9 +1,10 @@
 import { Body, Controller, Delete, Get, HttpStatus, Param, Patch, Post, Res } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DealDao } from "../../db/domain/deal.dao";
-import { Repository } from "typeorm";
+import { Between, Repository } from "typeorm";
 import { DealDto } from "@todolist/models/deal.dto";
 import { Response } from "express";
+import moment = require("moment");
 
 @Controller("/deals")
 export class DealsController {
@@ -83,5 +84,26 @@ export class DealsController {
   async deleteDeal(@Param() params, @Res() res: Response): Promise<void> {
     await this.dealsRepository.delete(params.id);
     res.status(HttpStatus.OK).send();
+  }
+  @Post("forDate")
+  async getEventsByDate(@Body() body: { date: string }): Promise<DealDto[]> {
+    const date = moment(body.date);
+    date.hour(4).minutes(0).seconds(0).milliseconds(0);
+    const endDate = moment(body.date);
+    endDate.hour(4).minutes(0).seconds(0).milliseconds(0);
+    endDate.add(1, "d").subtract(1, "ms");
+    const deals = await this.dealsRepository.find({
+      where: {
+        date: Between(date.toISOString(), endDate.toISOString())
+      }
+    });
+    return deals.map(m => ({
+      id: m.id,
+      title: m.title,
+      date: m.date,
+      finished: m.finished,
+      important: m.important,
+      urgent: m.urgent
+    }));
   }
 }

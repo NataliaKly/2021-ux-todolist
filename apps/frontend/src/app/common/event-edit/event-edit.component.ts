@@ -1,15 +1,16 @@
 import { Component } from "@angular/core";
 import { FormInfoModel } from "../../models/formInfo.model";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { EventService } from "../../service/event.service";
 import { EventDto } from "@todolist/models/event.dto";
+import moment from "moment";
 
 @Component({
-  selector: "b-event-new",
-  templateUrl: "./event-page.component.html",
-  styleUrls: ["./event-page.component.less"]
+  selector: "b-event-edit",
+  templateUrl: "./event-edit.component.html",
+  styleUrls: ["./event-edit.component.less"]
 })
-export class EventPageComponent {
+export class EventEditComponent {
   public formInfo: FormInfoModel = {
     title: "",
     time: "",
@@ -21,7 +22,7 @@ export class EventPageComponent {
   public date: Date;
   public datePage;
 
-  constructor(private route: ActivatedRoute, private eventService: EventService) {}
+  constructor(private route: ActivatedRoute, private eventService: EventService, private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -37,8 +38,8 @@ export class EventPageComponent {
   }
 
   get dateString(): string {
-    const dateString = this.date;
-    return dateString.toDateString();
+    const momentDate = moment(this.date);
+    return momentDate.format("DD.MM.YYYY");
   }
 
   saveInfo() {
@@ -60,5 +61,8 @@ export class EventPageComponent {
     this.eventService.patchSaveInfo(this.pageId, body).subscribe((newInfo: EventDto) => {
       newInfo;
     });
+  }
+  CancelInfo(pageId) {
+    this.router.navigate(["/event-view/" + pageId]);
   }
 }
